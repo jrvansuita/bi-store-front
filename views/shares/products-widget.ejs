@@ -1,0 +1,10 @@
+<link rel="stylesheet" type="text/css" href="/css/products-widget.css">
+<script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="/js/products-widget.js"></script>
+<div class="scu-holder"><div class="scu-grid"></div></div>
+
+<script type="text/javascript">
+$(document).ready(() => {
+  new ProductShareWidget('<%=locals.sku%>').loadNext();
+});
+</script>
