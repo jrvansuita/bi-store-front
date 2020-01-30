@@ -27,7 +27,7 @@ var allowedOrigins = [
 ];
 
 if (!process.env.NODE_ENV){
-  allowedOrigins.push('http://localhost:' + app.get('port'));
+  allowedOrigins.push('http://localhost:' + app.get('port')); 
 }
 
 var allowCorsMiddleware = (req, res, next) => {
