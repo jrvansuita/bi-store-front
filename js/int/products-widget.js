@@ -30,7 +30,7 @@ class ProductShareWidget{
   }
 
   onFirstPageLoad(){
-    $('.scu-grid').before($('<h2>').append('Fotos Compartilhadas pelos Clientes'));
+    $('.scu-grid').before($('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes'));
     var button = $('<button>').text('Carregar Mais');
     var loadHolder = $("<div>").addClass("scu-load-more").append(button);
     $('.scu-holder').append(loadHolder);
