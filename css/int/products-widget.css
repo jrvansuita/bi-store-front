@@ -1,12 +1,13 @@
 .scu-holder{
   position: relative;
   margin: 10px 15px;
+  padding-bottom: 50px;
 }
 
 .scu-grid{
   width: 80%;
   columns: 4 100px;
-  column-gap: 1rem;
+  column-gap: 1rem;  
 }
 
 .scu-grid .item{
