@@ -24,6 +24,8 @@ class ProductShareWidget{
         data.forEach((each)=>{
           this.buildItem(each);
         });
+      }else{
+        $('.scu-load-more button').hide();
       }
     });
   }

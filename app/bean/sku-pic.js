@@ -29,8 +29,7 @@ module.exports = class SkuPic extends DataAccess {
       result = docs;
 
 
-
-      if (dif <= 0){
+      if (dif <= 0 || !sku){
         callback(result);
       }else{
         SkuPic.getLasts(SkuPic.getPageQuery(sku, true), dif, (err, docs) => {
