@@ -10,7 +10,13 @@ var Imp = {
 
   jQuery(){
     return "<script>window.jQuery || document.write('<script src=\""+ global.host + "/js/ext/jquery.js\"><\\/script>')</script><script>$ = jQuery;</script>";
+  },
+
+  onReady(callback){
+    if (callback){
+      return "<script type='text/javascript'>$(document).ready(" + callback.toString() + ");</script>";
   }
+}
 
 };
 
