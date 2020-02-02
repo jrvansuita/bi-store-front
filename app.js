@@ -20,6 +20,14 @@ app.listen().setTimeout(120000); // 2 minutos
 app.use('/css', express.static('css'));
 app.use('/js', express.static('js'));
 
+app.use((req, res, next) => {
+  global.host = req.protocol + '://' + req.get('host');
+  global.curUrl = global.host + req.originalUrl;
+  next();
+});
+
+global.Imp = require('./app/util/importer.js');
+
 
 //CORS middleware
 var allowedOrigins = [
@@ -27,7 +35,7 @@ var allowedOrigins = [
 ];
 
 if (!process.env.NODE_ENV){
-  allowedOrigins.push('http://localhost:' + app.get('port')); 
+  allowedOrigins.push('http://localhost:' + app.get('port'));
 }
 
 var allowCorsMiddleware = (req, res, next) => {

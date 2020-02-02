@@ -1,8 +1,8 @@
-$ = jQuery;
 
 class ProductShareWidget{
-  constructor(sku){
+  constructor(host, sku){
     this.page = 0;
+    this.host = host;
     this.sku = sku || '';
   }
 
@@ -18,7 +18,7 @@ class ProductShareWidget{
   loadNext(){
     this.page++;
 
-    $.post("/get-sku-pictures-page", {sku: this.sku, page: this.page}, (data) => {
+    $.post(this.host + "/get-sku-pictures-page", {sku: this.sku, page: this.page}, (data) => {
       if(data && data.length){
         if(this.page == 1)
         this.onFirstPageLoad();
