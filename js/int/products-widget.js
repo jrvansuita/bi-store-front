@@ -1,5 +1,4 @@
-
-class ProductShareWidget{
+const ProductShareWidget = class ProductShareWidget{
   constructor(sku){
     this.page = 0;
     this.sku = sku;
@@ -28,7 +27,7 @@ class ProductShareWidget{
       }
     });
   }
-  
+
   onFirstPageLoad(){
     $('.scu-grid').before($('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes'));
     var button = $('<button>').text('Carregar Mais');

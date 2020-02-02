@@ -5,7 +5,7 @@ module.exports = {
     return "<style>" + fs.readFileSync('./css/int/'+cssName+'.css','utf8') + "</style>";
   },
 
-  js: (jsName)=>{
+  js: (jsName, callback)=>{
     return "<script type='text/javascript'>" + fs.readFileSync('./js/int/'+jsName+'.js','utf8') + "</script>";
   },
 
