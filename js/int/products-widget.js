@@ -26,7 +26,7 @@ class ProductShareWidget{
           this.buildItem(each);
         });
 
-        autoResizeIFrame();
+        this.autoResizeIFrame();
       }
     });
   }
