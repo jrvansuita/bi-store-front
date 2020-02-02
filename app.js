@@ -21,10 +21,7 @@ app.use('/css', express.static('css'));
 app.use('/js', express.static('js'));
 
 app.use((req, res, next) => {
-  console.log(req.secure);
-  console.log(req.protocol);
-
-  global.host = req.get('host');
+  global.host = 'http' + (process.env.NODE_ENV ? 's' : '' ) + '://' + req.get('host');
   global.curUrl = global.host + req.originalUrl;
   next();
 });
