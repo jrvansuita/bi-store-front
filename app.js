@@ -24,7 +24,7 @@ app.use((req, res, next) => {
   console.log(req.secure);
   console.log(req.protocol);
 
-  global.host = 'http' + (req.secure ? 's' : '' ) + '://' + req.get('host');
+  global.host = req.get('host');
   global.curUrl = global.host + req.originalUrl;
   next();
 });
