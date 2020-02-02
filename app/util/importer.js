@@ -1,19 +1,22 @@
-var Imp = {
+const fs = require('fs');
 
+module.exports = {
   css: (cssName)=>{
-    return "<link rel='stylesheet' type='text/css' href='/css/int/" + cssName + ".css'>";
+    return "<style>" + fs.readFileSync('./css/int/'+cssName+'.css','utf8') + "</style>";
   },
 
   js: (jsName)=>{
-    return "<script type='text/javascript' src='/js/int/" + jsName + ".js'></script>";
+    return "<script type='text/javascript'>" + fs.readFileSync('./js/int/'+jsName+'.js','utf8') + "</script>";
   },
 
   jQuery(){
-    return "<script>window.jQuery || document.write('<script src=\"/js/ext/jquery.js\"><\\/script>')</script><script>$ = jQuery;</script>";
+    var result = '';
+
+    if (!process.env.NODE_ENV){
+      result = "<script src='/js/ext/jquery.js'></script>"
+    }
+
+    return result + "<script>$ = jQuery;</script>";
   }
 
 };
-
-
-if (typeof module != 'undefined')
-module.exports = Imp;

@@ -25,19 +25,10 @@ class ProductShareWidget{
         data.forEach((each)=>{
           this.buildItem(each);
         });
-
-        this.autoResizeIFrame();
       }
     });
   }
-
-  autoResizeIFrame() {
-    var iframe = window.parent.$("iframe");
-    if (iframe.length){
-      iframe.height(iframe.contents().find('html').height());
-    }
-  }
-
+  
   onFirstPageLoad(){
     $('.scu-grid').before($('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes'));
     var button = $('<button>').text('Carregar Mais');

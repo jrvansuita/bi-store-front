@@ -2,22 +2,20 @@ const pageLimit = 16;
 
 module.exports = class SkuPic extends DataAccess {
 
-  constructor(sku, url, img, type) {
-    super();
-  }
-
   static getKey() {
     return ['_id'];
   }
 
   static getPageQuery(sku, not){
     var result = {approved: true};
-    var reg =  new RegExp(sku, 'i');
 
-    if (not){
-      result['sku'] = {$not: reg}
-    }else{
-      result['sku'] = reg;
+    if (sku){
+      var reg =  new RegExp(sku, 'i');
+      if (not){
+        result['sku'] = {$not: reg}
+      }else{
+        result['sku'] = reg;
+      }
     }
 
     return result;
@@ -25,11 +23,10 @@ module.exports = class SkuPic extends DataAccess {
 
 
 
+
   static getSkuPage(page, sku, callback) {
     var limit = 16;
     var result;
-
-
 
     SkuPic.paginate(SkuPic.getPageQuery(sku), page, '-date', limit, (err, docs)=>{
       var dif = limit - docs.length;
@@ -49,7 +46,6 @@ module.exports = class SkuPic extends DataAccess {
       }
     });
   }
-
 
 
 };
