@@ -20,12 +20,9 @@ app.listen().setTimeout(120000); // 2 minutos
 app.use('/css', express.static('css'));
 app.use('/js', express.static('js'));
 
-/*app.use((req, res, next) => {
-  global.host = 'http' + (process.env.NODE_ENV ? 's' : '' ) + '://' + req.get('host');
-  global.curUrl = global.host + req.originalUrl;
-  next();
-});*/
 
+
+global.Util = require('./app/util/util.js');
 global.Imp = require('./app/util/importer.js');
 
 
@@ -52,6 +49,12 @@ app.use(allowCorsMiddleware);
 
 if (!process.env.NODE_ENV) {
   require('dotenv').config();
+}else{
+  app.use((req, res, next) => {
+    console.log('dd');
+    global.host = 'https://' + req.get('host');
+    next();
+  });
 }
 
 require('./app/mongoose/mongoose.js');

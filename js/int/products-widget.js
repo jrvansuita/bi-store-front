@@ -16,7 +16,7 @@ class ProductShareWidget{
   loadNext(){
     this.page++;
 
-    $.post("/get-sku-pictures-page", {sku: this.sku, page: this.page}, (data) => {
+    $.post('__host' + "/get-sku-pictures-page", {sku: this.sku, page: this.page}, (data) => {
       if(data && data.length){
         if(this.page == 1)
         this.onFirstPageLoad();
@@ -38,5 +38,9 @@ class ProductShareWidget{
       this.loadNext();
     })
   }
-
 };
+
+
+$(document).ready(() => {
+  new ProductShareWidget('__sku').loadNext();
+});

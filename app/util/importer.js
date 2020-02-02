@@ -5,8 +5,9 @@ module.exports = {
     return "<style>" + fs.readFileSync('./css/int/'+cssName+'.css','utf8') + "</style>";
   },
 
-  js: (jsName, callback)=>{
-    return "<script type='text/javascript'>" + fs.readFileSync('./js/int/'+jsName+'.js','utf8') + "$(document).ready(() => {new ProductShareWidget().loadNext();});</script>";
+  js: (jsName, data)=>{
+    var result = "<script type='text/javascript'>" + fs.readFileSync('./js/int/'+jsName+'.js','utf8') + "</script>";
+    return Util.format(result, data);
   },
 
   jQuery(){
