@@ -20,11 +20,11 @@ app.listen().setTimeout(120000); // 2 minutos
 app.use('/css', express.static('css'));
 app.use('/js', express.static('js'));
 
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
   global.host = 'http' + (process.env.NODE_ENV ? 's' : '' ) + '://' + req.get('host');
   global.curUrl = global.host + req.originalUrl;
   next();
-});
+});*/
 
 global.Imp = require('./app/util/importer.js');
 

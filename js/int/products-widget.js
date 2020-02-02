@@ -1,9 +1,8 @@
 
 class ProductShareWidget{
-  constructor(host, sku){
+  constructor(sku){
     this.page = 0;
-    this.host = host;
-    this.sku = sku || '';
+    this.sku = sku;
   }
 
   buildItem(each){
@@ -18,7 +17,7 @@ class ProductShareWidget{
   loadNext(){
     this.page++;
 
-    $.post(this.host + "/get-sku-pictures-page", {sku: this.sku, page: this.page}, (data) => {
+    $.post("/get-sku-pictures-page", {sku: this.sku, page: this.page}, (data) => {
       if(data && data.length){
         if(this.page == 1)
         this.onFirstPageLoad();
