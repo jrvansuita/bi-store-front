@@ -1,3 +1,7 @@
+.scu-holder{
+  position: relative;
+  margin: 10px 15px;
+}
 
 .scu-grid{
   width: 100%;

@@ -25,8 +25,17 @@ class ProductShareWidget{
         data.forEach((each)=>{
           this.buildItem(each);
         });
+
+        autoResizeIFrame();
       }
     });
+  }
+
+  autoResizeIFrame() {
+    var iframe = window.parent.$("iframe");
+    if (iframe.length){
+      iframe.height(iframe.contents().find('html').height());
+    }
   }
 
   onFirstPageLoad(){
