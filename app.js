@@ -21,7 +21,7 @@ app.use('/css', express.static('css'));
 app.use('/js', express.static('js'));
 
 app.use((req, res, next) => {
-  global.host = 'https://' + req.get('host');
+  global.host = req.protocol + '://' + req.get('host');
   global.curUrl = global.host + req.originalUrl;
   next();
 });
