@@ -1,5 +1,5 @@
 const Routes = require('../redirects/controller/routes.js');
-const SkuPic = require('../bean/sku-pic.js');
+const ProductSharesProvider = require('../provider/product-shares.js');
 
 var cacheSkuPictures = {};
 
@@ -14,16 +14,12 @@ module.exports = class SharesRoutes extends Routes {
       var page = parseInt(req.body.page) || 1;
       var sku = req.body.sku;
 
-      var cached = cacheSkuPictures[sku + page];
-
-      if (cached){
-        res.send(cached);
-      }else{
-        SkuPic.getSkuPage(page, sku, (all)=>{
-          cacheSkuPictures[sku + page] = all;
-          res.send(all);
-        });
-      }
+      new ProductSharesProvider(true)
+      .with(sku, page)
+      .setOnResult((data) => {
+        res.send(data);
+      })
+      .get();
     });
   }
 

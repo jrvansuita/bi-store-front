@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var app = express();
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 4000);
 
 
 app.use(bodyParser.json({limit: '5mb'}));
@@ -51,7 +51,6 @@ if (!process.env.NODE_ENV) {
   require('dotenv').config();
 }else{
   app.use((req, res, next) => {
-    console.log('dd');
     global.host = 'https://' + req.get('host');
     next();
   });

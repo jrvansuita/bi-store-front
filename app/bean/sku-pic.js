@@ -1,4 +1,3 @@
-const pageLimit = 16;
 
 module.exports = class SkuPic extends DataAccess {
 
@@ -21,10 +20,7 @@ module.exports = class SkuPic extends DataAccess {
     return result;
   }
 
-
-
-
-  static getSkuPage(page, sku, callback) {
+  static getPage(sku, page, callback) {
     var limit = 16;
     var result;
 
