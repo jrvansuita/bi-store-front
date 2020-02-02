@@ -6,7 +6,7 @@ module.exports = {
   },
 
   js: (jsName, callback)=>{
-    return "<script type='text/javascript'>" + fs.readFileSync('./js/int/'+jsName+'.js','utf8') + "</script>";
+    return "<script type='text/javascript'>" + fs.readFileSync('./js/int/'+jsName+'.js','utf8') + "$(document).ready(() => {new ProductShareWidget().loadNext();});</script>";
   },
 
   jQuery(){

@@ -1,4 +1,4 @@
-const ProductShareWidget = class ProductShareWidget{
+class ProductShareWidget{
   constructor(sku){
     this.page = 0;
     this.sku = sku;
