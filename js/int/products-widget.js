@@ -2,21 +2,22 @@ class ProductShareWidget{
   constructor(sku){
     this.page = 0;
     this.sku = sku;
+
   }
 
   buildItem(each){
-    var item = $('<div>').addClass('item').append($('<img>').attr('src', each.img));
+    var item = jQuery('<div>').addClass('item').append(jQuery('<img>').attr('src', each.img));
     if (each.url){
       item.click(() => {window.open(each.url, '_blank')});
     }
-    $('.scu-grid').append(item);
+    jQuery('.scu-grid').append(item);
     item.hide().fadeIn(200);
   }
 
   loadNext(){
     this.page++;
 
-    $.post('__host' + "/get-sku-pictures-page", {sku: this.sku, page: this.page}, (data) => {
+    jQuery.post('__host' + "/get-sku-pictures-page", {sku: this.sku, page: this.page}, (data) => {
       if(data && data.length){
         if(this.page == 1)
         this.onFirstPageLoad();
@@ -25,16 +26,16 @@ class ProductShareWidget{
           this.buildItem(each);
         });
       }else{
-        $('.scu-load-more button').hide();
+        jQuery('.scu-load-more button').hide();
       }
     });
   }
 
   onFirstPageLoad(){
-    $('.scu-grid').before($('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes'));
-    var button = $('<button>').text('Carregar Mais');
-    var loadHolder = $("<div>").addClass("scu-load-more").append(button);
-    $('.scu-holder').append(loadHolder);
+    jQuery('.scu-grid').before(jQuery('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes'));
+    var button = jQuery('<button>').text('Carregar Mais');
+    var loadHolder = jQuery("<div>").addClass("scu-load-more").append(button);
+    jQuery('.scu-holder').append(loadHolder);
 
     button.click(() => {
       this.loadNext();
@@ -43,6 +44,6 @@ class ProductShareWidget{
 };
 
 
-$(document).ready(() => {
+jQuery(document).ready(() => {
   new ProductShareWidget('__sku').loadNext();
 });
