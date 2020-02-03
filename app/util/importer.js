@@ -17,7 +17,7 @@ module.exports = {
       result = "<script src='/js/ext/jquery.js'></script>"
     }
 
-    return result + "<script>$ = jQuery;</script>";
+    return result; //+ "<script>$ = jQuery;</script>";
   }
 
 };
