@@ -11,11 +11,8 @@ module.exports = class SharesRoutes extends Routes {
     });
 
     this._post('/get-sku-pictures-page', (req, res) => {
-      var page = parseInt(req.body.page) || 1;
-      var sku = req.body.sku;
-
       new ProductSharesProvider(true)
-      .with(sku, page)
+      .with(req.body.sku, parseInt(req.body.page) || 1)
       .setOnResult((data) => {
         res.send(data);
       })

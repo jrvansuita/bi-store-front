@@ -37,7 +37,7 @@ module.exports = class ProductSharesProvider{
   }
 
   _putOnCache(data){
-    return _cachedSkuPictures[this._index()] = data;
+     _cachedSkuPictures[this._index()] = data;
   }
 
   setOnResult(callback){
