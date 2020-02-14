@@ -10,7 +10,7 @@ module.exports = class SharesRoutes extends Routes {
       res.render('shares/products-widget', {sku: req.query.sku});
     });
 
-    this._post('/get-sku-pictures-page', (req, res) => {
+    this._post('/get-shares-product-page', (req, res) => {
       new ProductSharesProvider(true)
       .with(req.body.sku, parseInt(req.body.page) || 1)
       .setOnResult((data) => {

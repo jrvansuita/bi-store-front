@@ -59,7 +59,9 @@ if (!process.env.NODE_ENV) {
 require('./app/mongoose/mongoose.js');
 
 var routes = [];
+routes.push('general-routes.js');
 routes.push('shares-routes.js');
+
 
 // -- Run Routes -- //
 routes.forEach((r)=>{

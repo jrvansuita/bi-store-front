@@ -5,6 +5,11 @@ module.exports = class Routes {
     this.app = app;
   }
 
+
+  _routes(){
+    return this.app._router.stack;
+  }
+
   _get(paths, callback){
     this.app.get(paths, (req, res) => {
       res.setHeader("Access-Control-Allow-Origin", "*");
