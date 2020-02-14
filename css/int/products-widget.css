@@ -10,13 +10,10 @@
 }
 
 .scu-grid .item{
-  width: 100px;
   color: white;
   margin: 0 1rem 1rem 0;
   display: inline-block;
   width: 100%;
-  object-fit: cover;
-  height: 200px;
 }
 
 .scu-grid .item > img{
@@ -24,6 +21,8 @@
   position: relative;
   width: 100%;
   border-radius: 2px;
+  object-fit: cover;
+  height: 200px;
   transition: all .2s ease-in-out;
 }
 
