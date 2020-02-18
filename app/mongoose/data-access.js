@@ -133,62 +133,6 @@ static aggregate(query, callback) {
     });
   }
 
-  //Upsert using provided query and data
-  static upsert(query, data, callback) {
-    delete data.__v;
-    this.staticAccess().findOneAndUpdate(query, data, {
-      upsert: true,
-      new: true,
-      setDefaultsOnInsert: true
-    }, (err, doc) => {
-      if (callback)
-      callback(err, doc);
-    });
-  }
-
-  //Update using provided query and data
-  static updateAll(query, data, callback) {
-    delete data.__v;
-    this.staticAccess().updateMany(query, data, {
-      multi: true
-    }, (err, doc) => {
-      if (callback)
-      callback(err, doc);
-    });
-  }
-
-  static updateOrSet(query, data, callback) {
-    this.staticAccess().findOneAndUpdate(query, data, {
-      upsert: true,
-      runValidators: false,
-      strict: false
-    }, (err, doc) => {
-      if (callback)
-      callback(err, doc);
-    });
-  }
-
-  static create(data, callback){
-    this.staticAccess().create(data, function (err, obj) {
-      if (callback){
-        callback(err, obj);
-      }
-    });
-  }
-
-  static removeAll(query, callback) {
-    this.staticAccess().deleteMany(query, (err) => {
-      if (callback)
-      callback(err);
-    });
-  }
-
-  static remove(object, callback) {
-    this.staticAccess().findOneAndRemove(this.staticAccess().getKeyQuery(this.staticAccess().getKeyVal(object)), (err) => {
-      if (callback)
-      callback(err);
-    });
-  }
 
 
   // --- Class -- //
@@ -199,55 +143,10 @@ static aggregate(query, callback) {
   }
 
 
-  // save(callback) {
-  //   Schema.Build(this).save(callback);
-  // }
-
   getPKQuery() {
     return this.constructor.getKeyQuery(this.constructor.getKeyVal(this));
   }
 
-
-
-  insert(callback){
-    this.classAccess().save((err, results)=>{
-      if (callback){
-        callback(err, results);
-      }
-    });
-  }
-
-  //Inserts the object or update based on the primary key
-  upsert(callback) {
-    delete this.__v;
-    var query = this.getPKQuery();
-
-    this.classAccess().findOneAndUpdate(this.getPKQuery(), this, {
-      upsert: true,
-      new: true,
-      setDefaultsOnInsert: true
-    }, (err, doc) => {
-      if (callback)
-      callback(err, doc);
-    });
-  }
-
-  update(callback) {
-    this.classAccess().updateOne(this.getPKQuery(),
-    this, {
-      multi: false
-    }, (err, doc) => {
-      if (callback)
-      callback(err, doc);
-    });
-  }
-
-  remove(callback) {
-    this.classAccess().findOneAndRemove(this.getPKQuery(), (err) => {
-      if (callback)
-      callback(err);
-    });
-  }
 
 
 
