@@ -7,7 +7,7 @@ module.exports = class SharesRoutes extends Routes {
 
   attach(){
     this._get('/shares-product-widget', (req, res) => {
-      res.render('shares/products-widget', {sku: req.query.sku});
+      res.renderAndCache('shares/products-widget', {sku: req.query.sku});
     });
 
     this._post('/get-shares-product-page', (req, res) => {

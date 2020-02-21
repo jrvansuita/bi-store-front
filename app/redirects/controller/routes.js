@@ -5,6 +5,11 @@ module.exports = class Routes {
     this.cache = {};
   }
 
+  _printMemoryUsed(){
+    const used = process.memoryUsage().heapUsed / 1024 / 1024;
+    console.log(`Memory Usage: ${Math.round(used * 100) / 100} MB`);
+  }
+
   _setDefaultHeaders(res){
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -12,12 +17,15 @@ module.exports = class Routes {
   }
 
   _setCacheOption(res){
-    res.renderAndCache = (path) => {
-      if (this.cache[path]){
-        res.send(this.cache[path]);
+    res.renderAndCache = (path, data) => {
+      var cacheId = path + (data ? Object.values(data).join('') : '');
+
+      if (this.cache[cacheId]){
+        res.send(this.cache[cacheId]);
+        this._printMemoryUsed();
       }else{
-        res.render(path, (err, html) => {
-          this.cache[path] = html;
+        res.render(path, data, (err, html) => {
+          this.cache[cacheId] = html;
           res.send(html);
         });
       }
