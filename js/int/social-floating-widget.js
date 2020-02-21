@@ -1,5 +1,5 @@
 jQuery(document).ready(function(){
-  jQuery('.sfmwa').not('.sfmw-mini-action').click(function() {
+  jQuery('.sfmwa').not('.sfmwma').click(function() {
     jQuery('.sfmwa').hide();
     jQuery('.sfmwc').show().css('display', 'block');
 

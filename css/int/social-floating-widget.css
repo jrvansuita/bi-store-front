@@ -32,15 +32,15 @@
 
 .sfmw .sfmwma{
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   padding: 5px;
   margin: 10px auto;
 }
 
 .sfmw .sfmwma > img{
   width: auto;
-  height: -webkit-fill-available;
+  height: auto;
   padding: 4px;
 }
 
