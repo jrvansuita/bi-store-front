@@ -1,15 +1,15 @@
 jQuery(document).ready(function(){
-  jQuery('.sfmw-action').not('.sfmw-mini-action').click(function() {
-    jQuery('.sfmw-action').hide();
-    jQuery('.sfmw-close').show().css('display', 'block');
+  jQuery('.sfmwa').not('.sfmw-mini-action').click(function() {
+    jQuery('.sfmwa').hide();
+    jQuery('.sfmwc').show().css('display', 'block');
 
-    jQuery(this).siblings('.sfmw-mini-action').show().css('display', 'block');
+    jQuery(this).siblings('.sfmwma').show().css('display', 'block');
   });
 
-  jQuery('.sfmw-close').click(function() {
-    jQuery('.sfmw-action').show();
-    jQuery('.sfmw-close').hide();
+  jQuery('.sfmwc').click(function() {
+    jQuery('.sfmwa').show();
+    jQuery('.sfmwc').hide();
 
-    jQuery('.sfmw-mini-action').hide();
+    jQuery('.sfmwma').hide();
   });
 });
