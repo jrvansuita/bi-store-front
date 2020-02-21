@@ -19,7 +19,7 @@ module.exports = class Routes {
   _setCacheOption(res){
     res.renderAndCache = (path, data) => {
       console.time(path);
-      var cacheId = path + (data ? Object.values(data).join('') : '');
+      var cacheId = path  (data ? '-' + Object.values(data).join('-') : '');
 
       if (this.cache[cacheId]){
         res.send(this.cache[cacheId]);

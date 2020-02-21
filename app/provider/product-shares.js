@@ -55,7 +55,6 @@ module.exports = class ProductSharesProvider{
     }
   }
 
-
   get(){
     if (this.meansurePerformance){
       console.time(this._getLogTag());
