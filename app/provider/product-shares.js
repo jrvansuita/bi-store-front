@@ -9,7 +9,7 @@ module.exports = class ProductSharesProvider{
   }
 
   _getLogTag(){
-    return 'ProductSharesProvider: SKU-' + this.sku + ' PAGE-' + this.page;
+    return 'product-shares-provider: SKU-' + this.sku + ' PAGE-' + this.page;
   }
 
   with(sku, page){

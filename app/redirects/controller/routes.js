@@ -18,15 +18,18 @@ module.exports = class Routes {
 
   _setCacheOption(res){
     res.renderAndCache = (path, data) => {
+      console.time(path);
       var cacheId = path + (data ? Object.values(data).join('') : '');
 
       if (this.cache[cacheId]){
         res.send(this.cache[cacheId]);
+        console.timeEnd(path);
         this._printMemoryUsed();
       }else{
         res.render(path, data, (err, html) => {
           this.cache[cacheId] = html;
           res.send(html);
+          console.timeEnd(path);
         });
       }
     }
