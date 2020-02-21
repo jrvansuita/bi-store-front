@@ -18,11 +18,18 @@ app.set('views', global.__appDir + '/views');
 app.listen().setTimeout(120000); // 2 minutos
 
 
-app.use('/css', express.static('css'));
-app.use('/js', express.static('js'));
-app.use('/img', express.static('img', {
-  maxAge: 2 /*2 dias*/ * (24 * 60 * 60 * 1000) // 24 hours
-}));
+
+var staticFilesCache = {};
+
+if (process.env.NODE_ENV) {
+  staticFilesCache = {
+    maxAge: 2 /*2 dias*/ * (24 * 60 * 60 * 1000) // 24 hours
+  }
+}
+
+app.use('/css', express.static('css', staticFilesCache));
+app.use('/js', express.static('js', staticFilesCache));
+app.use('/img', express.static('img', staticFilesCache));
 
 //CORS middleware
 var allowedOrigins = [

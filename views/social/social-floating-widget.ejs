@@ -3,22 +3,23 @@
 <%-Imp.js('social-floating-widget')%>
 
 
+
 <div class="sfmw">
   <div class="sfmw-block">
-    <img class="sfmw-action" src="/img/dots-w.png" alt="Menu Social" />
-    <a class="sfmw-action sfmw-mini-action fb" href="<%=Params.facebookUrl()%>" target="_blank"><img src="<%=global.host%>/img/facebook-w.png"/></a>
-    <a class="sfmw-action sfmw-mini-action fm" href="<%=Params.facebookMessengerUrl()%>" href="#" target="_blank"><img src="/img/messenger-w.png"/></a>
-    <a class="sfmw-action sfmw-mini-action i" href="<%=Params.instagramUrl()%>"  target="_blank"><img src="/img/instagram-w.png"/></a>
-    <a class="sfmw-action sfmw-mini-action t" href="<%=Params.telegramUrl()%>" target="_blank"><img src="/img/telegram-w.png"/></a>
-    <a class="sfmw-action sfmw-mini-action w" href="<%=Params.whatsappUrl()%>" target="_blank"><img src="/img/whatsapp-w.png"/></a>
+    <img class="sfmw-action" src="<%=Img.path('dots-w')%>" alt="Menu Social" />
+    <a class="sfmw-action sfmw-mini-action fb" href="<%=Params.facebookUrl()%>" target="_blank"><img src="<%=Img.path('facebook-w')%>"/></a>
+    <a class="sfmw-action sfmw-mini-action fm" href="<%=Params.facebookMessengerUrl()%>" href="#" target="_blank"><img src="<%=Img.path('messenger-w')%>"/></a>
+    <a class="sfmw-action sfmw-mini-action i" href="<%=Params.instagramUrl()%>"  target="_blank"><img src="<%=Img.path('instagram-w')%>"/></a>
+    <a class="sfmw-action sfmw-mini-action t" href="<%=Params.telegramUrl()%>" target="_blank"><img src="<%=Img.path('telegram-w')%>"/></a>
+    <a class="sfmw-action sfmw-mini-action w" href="<%=Params.whatsappUrl()%>" target="_blank"><img src="<%=Img.path('whatsapp-w')%>"/></a>
   </div>
 
   <div class="sfmw-block">
-    <img class="sfmw-action" src="/img/headset-w.png" alt="Central de Atendimento" />
-    <a class="sfmw-action sfmw-mini-action " href="<%=Params.customerServiceUrl()%>" target="_blank"><img src="/img/cursor-w.png"/></a>
-    <a class="sfmw-action sfmw-mini-action p" href="tel:<%=Params.customerServicePhone()%>" target="_blank"><img src="/img/phone-w.png"/></a>
-    <a class="sfmw-action sfmw-mini-action e" href="mailto:<%=Params.customerServiceEmail()%>" target="_blank"><img src="/img/mail-w.png"/></a>
+    <img class="sfmw-action" src="<%=Img.path('headset-w')%>" alt="Central de Atendimento" />
+    <a class="sfmw-action sfmw-mini-action " href="<%=Params.customerServiceUrl()%>" target="_blank"><img src="<%=Img.path('cursor-w')%>"/></a>
+    <a class="sfmw-action sfmw-mini-action p" href="tel:<%=Params.customerServicePhone()%>" target="_blank"><img src="<%=Img.path('phone-w')%>"/></a>
+    <a class="sfmw-action sfmw-mini-action e" href="mailto:<%=Params.customerServiceEmail()%>" target="_blank"><img src="<%=Img.path('mail-w')%>"/></a>
   </div>
 
-  <img class="sfmw-close sfmw-action sfmw-mini-action" src="/img/close-w.png" alt="Fechar" />
+  <img class="sfmw-close sfmw-action sfmw-mini-action" src="<%=Img.path('close-w')%>" alt="Fechar" />
 </div>
