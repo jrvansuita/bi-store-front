@@ -8,7 +8,7 @@ module.exports = class SocialRoutes extends Routes {
     });
 
     this._get('/facebook-comments-widget', (req, res) => {
-      res.renderAndCache('social/facebook-comments-widget');
+      res.render('social/facebook-comments-widget', {fullhref: req.query.fullhref});
     });
   }
 }
