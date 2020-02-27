@@ -6,5 +6,9 @@ module.exports = class SocialRoutes extends Routes {
     this._get('/social-floating-widget', (req, res) => {
       res.renderAndCache('social/social-floating-widget');
     });
+
+    this._get('/facebook-comments-widget', (req, res) => {
+      res.renderAndCache('social/facebook-comments-widget');
+    });
   }
 }

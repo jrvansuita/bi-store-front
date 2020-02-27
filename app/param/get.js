@@ -14,6 +14,9 @@ var Params = {
     return this.bundle()[name];
   },
 
+  facebookCommentsAppId(){
+    return this.get('fb-app-id-comments');
+  },
 
   facebookUrl(){
     return this.get('fb-url');
@@ -48,6 +51,8 @@ var Params = {
   customerServiceEmail(){
     return this.get('customer-service-email');
   },
+
+
 
 
 
