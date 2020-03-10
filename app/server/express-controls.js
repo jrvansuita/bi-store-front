@@ -3,7 +3,7 @@ var routes = [];
 routes.push('general-routes.js');
 routes.push('shares-routes.js');
 routes.push('social-routes.js');
-
+routes.push('tracking-routes.js');
 
 // -- Run Routes -- //
 routes.forEach((r)=>{

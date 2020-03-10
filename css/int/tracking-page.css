@@ -1,0 +1,17 @@
+.logo{
+  position: absolute;
+  right: 5%;
+  width: 10%;
+}
+
+.top-waves{
+  position: absolute;
+    top: -15%;
+    transform: rotate(-45deg);
+    left: -35%;
+}
+
+.bottom-waves{
+  position: absolute;
+  bottom: 0;
+}

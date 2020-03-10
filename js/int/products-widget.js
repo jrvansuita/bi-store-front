@@ -17,7 +17,7 @@ class ProductShareWidget{
   loadNext(){
     this.page++;
 
-    jQuery.post('__host' + "/get-shares-product-page", {sku: this.sku, page: this.page}, (data) => {
+    jQuery.post('__host/get-shares-product-page', {sku: this.sku, page: this.page}, (data) => {
       if(data && data.length){
         if(this.page == 1)
         this.onFirstPageLoad();
