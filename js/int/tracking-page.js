@@ -3,9 +3,9 @@ jQuery(document).ready(() => {
 
   new SideMenu()
   .addItem('Rastrear', 'loupe-w')
-  .addItem('Análise Fiscal', 'icon')
-  .addItem('Número do Pedido?', 'icon')
-  .addItem('Endereço Insuficiente', 'icon')
-  .addItem('Central de Atendimento', 'icon')
+  .addItem('Análise Fiscal', 'check-w')
+  .addItem('Número do Pedido?', 'box-w')
+  .addItem('Endereço Insuficiente', 'map-w')
+  .addItem('Central de Atendimento', 'headset-w')
   .build();
 });

@@ -10,10 +10,10 @@ module.exports = {
     return Util.format(result, data);
   },
 
-  jQuery(){
+  jQuery(force){
     var result = '';
 
-    if (!process.env.NODE_ENV){
+    if (force || !process.env.NODE_ENV){
       result = "<script src='/js/ext/jquery.js'></script>"
     }
 

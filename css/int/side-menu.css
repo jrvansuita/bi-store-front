@@ -14,7 +14,7 @@
   border-radius: 0 25px 23px 0;
   margin: 0;
   list-style-type: none;
-  padding-left: 15px;
+  padding: 0;
 }
 
 #sm-o{
@@ -43,8 +43,14 @@
 
 
 .sm-h li{
+  padding-left: 25px;
   border-bottom: 1px solid #ffffff63;
   display: flex;
+  cursor: pointer;
+}
+
+.sm-h li:hover{
+  background-color: #ffffff33;
 }
 
 .sm-h li p{
@@ -61,6 +67,6 @@
   padding-right: 15px;
   padding-left: 15px;
   padding-top: 10px;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
 }
