@@ -70,3 +70,18 @@ h2.scu-title{
   font-size: 24px;
   color: #464646;
 }
+
+
+@media screen and (max-width: 768px) {
+  .scu-holder{
+    width: 100%;
+  }
+
+  .scu-grid {
+    columns: 2 100px;
+  }
+
+  h2.scu-title{
+    font-size: 15px;
+  }
+}

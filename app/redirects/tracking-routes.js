@@ -10,5 +10,13 @@ module.exports = class TrackingRoutes extends Routes {
     this._get('/tracking-sale', (req, res) => {
       res.render('tracking/pages/tracking-sale', {__trackingUrl: Params.trackingUrl()});
     });
+
+    this._get('/tracking-template', (req, res) => {
+
+      Params.hawkUrl() + '/templates-viewer?id=' + (id || '');
+
+      res.renderAndCache('tracking/pages/tracking-sale', {__trackingUrl: Params.trackingUrl()});
+    });
   }
 }
+ 

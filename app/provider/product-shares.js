@@ -12,14 +12,15 @@ module.exports = class ProductSharesProvider{
     return 'product-shares-provider: SKU-' + this.sku + ' PAGE-' + this.page;
   }
 
-  with(sku, page){
+  with(sku, page, limit){
     this.sku = sku;
     this.page = page;
+    this.limit = limit;
     return this;
   }
 
   _find(callback){
-    SkuPic.getPage(this.sku, this.page, (data)=>{
+    SkuPic.getPage(this.sku, this.page, this.limit, (data)=>{
       callback(data);
     });
   }
@@ -37,7 +38,7 @@ module.exports = class ProductSharesProvider{
   }
 
   _putOnCache(data){
-     _cachedSkuPictures[this._index()] = data;
+    _cachedSkuPictures[this._index()] = data;
   }
 
   setOnResult(callback){

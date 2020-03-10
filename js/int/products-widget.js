@@ -1,8 +1,8 @@
 class ProductShareWidget{
-  constructor(sku){
+  constructor(sku,  limit){
     this.page = 0;
     this.sku = sku;
-
+    this.limit = limit;
   }
 
   buildItem(each){
@@ -17,7 +17,7 @@ class ProductShareWidget{
   loadNext(){
     this.page++;
 
-    jQuery.post('__host/get-shares-product-page', {sku: this.sku, page: this.page}, (data) => {
+    jQuery.post('__host/get-shares-product-page', {sku: this.sku, page: this.page, limit: this.limit}, (data) => {
       if(data && data.length){
         if(this.page == 1)
         this.onFirstPageLoad();
@@ -45,5 +45,5 @@ class ProductShareWidget{
 
 
 jQuery(document).ready(() => {
-  new ProductShareWidget('__sku').loadNext();
+  new ProductShareWidget('__sku','__limit').loadNext();
 });
