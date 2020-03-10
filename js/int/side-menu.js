@@ -5,11 +5,11 @@ var SideMenu = class {
   }
 
   _prepareMenu(){
-    var b = jQuery('<img>').attr('id', 'sm-c').attr('src', '__host/img/left-arrow-w.png');
+    var b = jQuery('<li>').append(jQuery('<img>').attr('id', 'sm-c').attr('src', '__host/img/left-arrow-w.png'));
     b.click(() => {
       this.hide();
     });
-    this.ul.prepend(jQuery('<li>').append(b));
+    this.ul.prepend(b);
   }
 
   addItem(label, icon, callback){

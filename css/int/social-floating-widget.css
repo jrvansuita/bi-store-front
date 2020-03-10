@@ -15,6 +15,7 @@
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
   background: #239c9c;
   border-radius: 50% !important;
+  box-sizing: border-box;
 }
 
 .sfmw .sfmwa{
@@ -29,10 +30,13 @@
   height: 38px;
   padding: 5px;
   margin: 10px auto;
+  box-sizing: border-box;
 }
 
 .sfmw .sfmwma > img{
   padding: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .sfmw .sfmwma:hover{
