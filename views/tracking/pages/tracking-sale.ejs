@@ -1,0 +1,16 @@
+<%-Imp.css('tracking/tracking-sale')%>
+<%-Imp.js('tracking/tracking-sale', { '__trackingUrl': __trackingUrl})%>
+
+<h1 class="title">Rastreie seu pedido</h1>
+<div class="animation">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_tzK2JI.json"  background="transparent"  speed="2" loop  autoplay >
+  </lottie-player>
+</div>
+
+<div class="tracking-input-group">
+  <input type="number" id="sale" placeholder="Digite o número do seu pedido">
+  <img id="go-sale" src="<%=Img.path('loupe-w')%>">
+</div>
+<p class="error-label"></p>
+<iframe frameBorder="0" id="tracking-content"></iframe>

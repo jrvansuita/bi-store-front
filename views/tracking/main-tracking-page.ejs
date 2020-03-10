@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   <title>Rastreio de Pedido</title>
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+
   <%-Imp.jQuery(true)%>
 
   <%-Imp.css('side-menu')%>
   <%-Imp.js('side-menu', { __host: global.host})%>
 
-  <%-Imp.css('tracking-page')%>
-  <%-Imp.js('tracking-page', { __host: global.host})%>
+  <%-Imp.css('tracking/tracking-page')%>
+  <%-Imp.js('tracking/tracking-page', { __host: global.host, __templateUrl: Imp.template()})%>
 </head>
 
 <body>
@@ -17,6 +20,10 @@
   <%- include('../parts/waves');%>
 
   <img class="logo" src="<%=Img.path('logo-v')%>">
+
+  <div class="content">
+
+  </div>
 
 
 

@@ -10,6 +10,12 @@ module.exports = {
     return Util.format(result, data);
   },
 
+
+  template: (id)=>{
+    return Params.hawkUrl() + '/templates-viewer?id=' + (id || '');
+  },
+
+
   jQuery(force){
     var result = '';
 

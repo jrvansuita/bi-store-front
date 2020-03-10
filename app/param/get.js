@@ -14,6 +14,10 @@ var Params = {
     return this.bundle()[name];
   },
 
+  hawkUrl(){
+    return this.get('prodution-url');
+  },
+
   facebookCommentsAppId(){
     return this.get('fb-app-id-comments');
   },
@@ -50,6 +54,10 @@ var Params = {
 
   customerServiceEmail(){
     return this.get('customer-service-email');
+  },
+
+  trackingUrl(sale){
+    return this.get('tracking-url') + (sale ? ('/' + sale) : '');
   },
 
 

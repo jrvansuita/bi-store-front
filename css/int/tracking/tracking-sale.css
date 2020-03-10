@@ -1,0 +1,64 @@
+.title{
+  text-align: center;
+  font-size: 35px;
+  color: #ff8092;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.tracking-input-group{
+  width: 30%;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 40px;
+}
+
+.animation{
+  width: 40%;
+  margin: auto;
+}
+
+#sale{
+  outline: none;
+  border-radius: 15px;
+  width: 100%;
+  height: 38px;
+  font-size: 18px;
+  text-align: center;
+  border: 3px solid #0092ff4f;
+}
+
+
+#sale:focus::-webkit-input-placeholder{
+  color: transparent;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+#go-sale{
+  position: absolute;
+  right: -10px;
+  background: #4ebefb;
+  height: 34px;
+  width: 35px;
+  top: -1px;
+  box-shadow: inset 1px 2px 4px rgba(0,0,0,.01), 0 0 8px rgba(0,0,0,.13);
+  padding: .5rem 1rem;
+  border-radius: 15px;
+}
+
+#go-sale:hover{
+  cursor: pointer;
+  background: #33b0f3;
+}

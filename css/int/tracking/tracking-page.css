@@ -1,0 +1,19 @@
+span, h1{
+  font-family: "Open Sans",sans-serif;
+}
+
+.logo{
+  position: absolute;
+  right: 5%;
+  width: 10%;
+  top: 0;
+}
+
+.content{
+  width: 50%;
+  margin: auto;
+  padding: 50px;
+  background-color: #fff6f1;
+  margin-top: 10%;
+  border-radius: 35px;
+}

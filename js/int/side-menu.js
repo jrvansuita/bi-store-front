@@ -1,7 +1,8 @@
 var SideMenu = class {
 
-  constructor(){
+  constructor(contentLoader){
     this.ul = jQuery('<ul>').addClass('sm-h');
+    this.contentLoader = contentLoader;
   }
 
   _prepareMenu(){
@@ -12,16 +13,34 @@ var SideMenu = class {
     this.ul.prepend(b);
   }
 
-  addItem(label, icon, callback){
+  addDivider(label){
+    var label = jQuery('<p>').append(label);
+    var item = jQuery('<li>').addClass('sm-d').append(label);
+    this.ul.append(item);
+    return this;
+  }
+
+  addItem(label, icon, callbackOrUrl){
     var label = jQuery('<p>').append(label);
     var icon = jQuery('<img>').addClass('sm-i').attr('src', '__host/img/' + icon + '.png');
-    var item = jQuery('<li>').append(label, icon);
+    var item = jQuery('<li>').append(label, icon).click(() => {
+
+      this.hide();
+
+      if (callbackOrUrl){
+        if (typeof callbackOrUrl === "function"){
+          callback();
+        }else if (typeof callbackOrUrl === "string"){
+          this.contentLoader.empty();
+          this.contentLoader.load(callbackOrUrl);
+        }
+      }
+
+    });
     this.ul.append(item);
 
     return this;
   }
-
-
 
   _appendFloatingMenuButton(){
     var menuButton = jQuery('<img>').attr('id', 'sm-o').attr('src', '__host/img/menu-w.png');
