@@ -44,6 +44,6 @@ function loadTrackingContent(callback){
 
 function onTrackingContentLoaded(){
   jQuery('.main-top').fadeOut(1000);
-  jQuery('.tracking-input-group').animate({left: '45px', top: '-14px'}, 1000);
-  jQuery('.iframe-holder').show();
+  jQuery('.tracking-input-group').addClass('input-animated').animate({top: '-14px'}, 1000);
+  jQuery('.iframe-holder').fadeIn();
 }
