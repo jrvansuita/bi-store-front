@@ -86,6 +86,13 @@ input[type=number] {
   display: none;
 }
 
+.input-animated{
+  position: absolute;
+  width: 25%;
+  left: 0;
+  right: 0;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px){
   .tracking-input-group{
     width: 60%;
@@ -128,5 +135,9 @@ input[type=number] {
     width: 100%;
     left: 0;
     top: 100px;
+  }
+
+  .input-animated{
+    left: 30px;
   }
 }
