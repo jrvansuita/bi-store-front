@@ -1,5 +1,10 @@
 *{
   box-sizing: content-box;
+  line-height: normal;
+}
+
+p{
+  margin: 0;
 }
 
 span, h1{
