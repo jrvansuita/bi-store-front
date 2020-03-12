@@ -1,13 +1,10 @@
+const https = require('https');
+const CacheHelper = require('./cache.js');
+
 module.exports = class Routes {
 
   constructor(app){
     this.app = app;
-    this.cache = {};
-  }
-
-  _printMemoryUsed(){
-    const used = process.memoryUsage().heapUsed / 1024 / 1024;
-    console.log(`Memory Usage: ${Math.round(used * 100) / 100} MB`);
   }
 
   _setDefaultHeaders(res){
@@ -17,23 +14,34 @@ module.exports = class Routes {
   }
 
   _setCacheOption(res){
-    res.renderAndCache = (path, data) => {
-      var cacheId = path + (data ? '-' + Object.values(data).join('-') : '');
-
-      console.time(cacheId);
-
-      if (this.cache[cacheId]){
-        res.send(this.cache[cacheId]);
-        console.timeEnd(cacheId);
-        this._printMemoryUsed();
-      }else{
-        res.render(path, data, (err, html) => {
-          this.cache[cacheId] = html;
-          res.send(html);
-          console.timeEnd(cacheId);
-        });
-      }
+    res.renderAndCache = (url, params) => {
+      new CacheHelper(url, params).load((callback) => {
+        res.render(url, params, callback);
+      }).dispath((content) => {
+        res.send(content);
+      });
     }
+
+    res.redirectAndCache = (url) => {
+      new CacheHelper(url, null).load((callback) => {
+        this._externalLoad(url, callback);
+      }).dispath((content) => {
+        res.send(content);
+      });
+    }
+  }
+
+
+  _externalLoad(url, callback){
+    https.get(url, (resp) => {
+      let data = '';
+      resp.on('data', (chunk) => {
+        data += chunk;
+      });
+      resp.on('end', () => {
+        callback(null, data);
+      });
+    });
   }
 
   _routes(){

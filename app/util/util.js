@@ -10,6 +10,10 @@ module.exports = {
     return str;
   },
 
+  printUsedMemory: ()=>{
+    const used = process.memoryUsage().heapUsed / 1024 / 1024;
+    console.log(`Memory Usage: ${Math.round(used * 100) / 100} MB`);
+  }
 
 
 };
