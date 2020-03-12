@@ -86,8 +86,13 @@
 .sm-h .sm-d p{
   margin: auto;
 }
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+  .sm-h{
+    width: 34%;
+  }
+}
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 468px){
   .sm-h{
     width: 65%;
   }

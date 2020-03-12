@@ -80,7 +80,13 @@ input[type=number] {
   display: none;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .tracking-input-group{
+      width: 60%;
+    }
+}
+
+@media only screen and (max-width: 468px){
 
   .title{
     font-size: 20px;
@@ -94,6 +100,7 @@ input[type=number] {
   .tracking-input-group{
     width: 73%;
     z-index: 99;
+    right: 10px;
   }
 
   #sale{
