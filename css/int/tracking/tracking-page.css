@@ -12,8 +12,22 @@ span, h1{
 .content{
   width: 50%;
   margin: auto;
-  padding: 50px;
+  padding: 50px 50px 110px 50px;
   background-color: #fff6f1;
   margin-top: 10%;
   border-radius: 35px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px){
+  .logo{
+    width: 20%;
+    top: -6px;
+  }
+
+  .content{
+    width: 65%;
+    margin-top: 30%;
+    white-space: nowrap;
+  }
 }

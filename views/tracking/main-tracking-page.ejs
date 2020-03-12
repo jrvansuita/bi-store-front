@@ -6,9 +6,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 
   <%-Imp.jQuery(true)%>
+  <%-Imp.viewport()%>
 
   <%-Imp.css('side-menu')%>
   <%-Imp.js('side-menu', { __host: global.host})%>
+  <%-Imp.js('util/util', { __host: global.host})%>
 
   <%-Imp.css('tracking/tracking-page')%>
   <%-Imp.js('tracking/tracking-page', { __host: global.host, __templateUrl: Imp.template()})%>

@@ -1,6 +1,8 @@
 jQuery(document).ready(() => {
   jQuery('body').append(jQuery('<div>').load("__host/social-floating-widget"));
 
+  var show = new Util().deviceIsDesktop();
+  
   new SideMenu(jQuery('.content'))
   .addItem('Rastrear', 'loupe-w', '__host/tracking-sale')
   .addDivider('Dúvidas Frequentes')
@@ -9,7 +11,7 @@ jQuery(document).ready(() => {
   .addItem('Endereço Insuficiente', 'map-w', '__templateUrl61723810')
   .addItem('Central de Atendimento', 'headset-w',  '__templateUrl61773960')
   .build()
-  .show();
+  .show(show);
 
   jQuery('.content').load('__host/tracking-sale');
 

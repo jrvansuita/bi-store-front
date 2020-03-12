@@ -48,15 +48,17 @@ var SideMenu = class {
       if (this.ul.hasClass('opened')){
         this.hide();
       }else{
-        this.show();
+        this.show(true);
       }
     });
     jQuery('body').append(menuButton);
   }
 
 
-  show(){
-    this.ul.addClass('opened').css('transform', 'translateX(0)');
+  show(val){
+    if(val){
+      this.ul.addClass('opened').css('transform', 'translateX(0)');
+    }
   }
 
   hide(){

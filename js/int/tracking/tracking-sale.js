@@ -14,6 +14,8 @@ jQuery(document).ready(() => {
 
 
 function loadTrackingContent(callback){
+
+
   jQuery('#sale').attr("disabled", "disabled");
 
   var url = '__trackingUrl';
@@ -27,12 +29,21 @@ function loadTrackingContent(callback){
   }
   else{
     jQuery('#tracking-content').attr('src', url+sale);
+    onTrackingContentLoaded();
   }
 
   if (msgError){
-    jQuery('.error-label').html(msgError);
-    jQuery('.error-label').fadeIn();
+    jQuery('.error-label').html(msgError).fadeIn();
+    setTimeout(function() {
+      jQuery('.error-label').fadeOut('slow');
+    }, 3000);
   }
 
   jQuery('#sale').removeAttr("disabled");
+}
+
+function onTrackingContentLoaded(){
+  jQuery('.main-top').fadeOut(1000);
+  jQuery('.tracking-input-group').animate({left: '45px', top: '-14px'}, 1000);
+  jQuery('.iframe-holder').show();
 }
