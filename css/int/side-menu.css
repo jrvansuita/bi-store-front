@@ -22,7 +22,7 @@
   left: 10px;
   top: 10px;
   background: #ff8092;
-  width: 30px;
+  width: 45px;
   padding: 8px;
   border-radius: 8px;
 }
@@ -63,12 +63,10 @@
 }
 
 .sm-h li .sm-i{
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 10px;
+  margin: 10px 10px 10px auto;
   width: 28px;
   height: 28px;
+
 }
 
 .sm-h .sm-d{
