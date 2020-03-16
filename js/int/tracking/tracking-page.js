@@ -14,6 +14,4 @@ jQuery(document).ready(() => {
   .show(show);
 
   jQuery('.content').load('__host/tracking-sale');
-
-  console.log('__host');
 });

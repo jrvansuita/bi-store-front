@@ -31,8 +31,14 @@ class ProductShareWidget{
     });
   }
 
+  _onFileUploadClick(){
+    new FileUploadDialog().title('Compartilhe conosco os looks Boutique Infantil!').show();
+  }
+
   onFirstPageLoad(){
-    jQuery('.scu-grid').before(jQuery('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes'));
+    var fileUploadButton = jQuery('<img>').addClass('scu-fu').attr('src', '__host/img/file-upload-g.png');
+    fileUploadButton.click(this._onFileUploadClick);
+    jQuery('.scu-grid').before(jQuery('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes',fileUploadButton));
     var button = jQuery('<button>').text('Carregar Mais');
     var loadHolder = jQuery("<div>").addClass("scu-load-more").append(button);
     jQuery('.scu-holder').append(loadHolder);

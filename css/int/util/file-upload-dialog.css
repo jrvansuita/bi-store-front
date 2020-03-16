@@ -1,0 +1,76 @@
+.fudmb{
+  width: 100%;
+  background: #00000059;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.fudmb .fudm{
+  margin: auto;
+  background: white;
+  padding: 15px 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+
+  -webkit-box-shadow: 8px 10px 8px -9px rgba(0,0,0,0.65);
+  -moz-box-shadow: 8px 10px 8px -9px rgba(0,0,0,0.65);
+  box-shadow: 8px 10px 8px -9px rgba(0,0,0,0.65);
+  cursor: pointer;
+}
+
+.fudmb .fudb{
+  display: flex;
+  position: relative;
+  border: 2px dashed #80808085;
+  border-radius: 5px;
+}
+
+.fudb .fudih{
+  flex: 30%;
+  position: relative;
+}
+
+.fudb .fudih > img{
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fudmb .fudi{
+  padding: 30px 15px;
+  flex: 70%;
+
+}
+
+
+.fudmb .fudi > span{
+  font-family: "Varela Round", sans-serif;
+  display: block;
+}
+
+.fudmb .fudi .fudt{
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+
+
+.fudmb .fudi .fudst{
+  color: gray;
+}
+
+.fudmb .fudi .fudft{
+  margin-top: 5px;
+  color: gray;
+  font-size: 13px;
+}
