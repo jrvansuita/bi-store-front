@@ -75,6 +75,8 @@ h2.scu-title{
 @media screen and (max-width: 768px) {
   .scu-holder{
     width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .scu-grid {
@@ -83,5 +85,6 @@ h2.scu-title{
 
   h2.scu-title{
     font-size: 15px;
+    font-weight: 400;
   }
 }
