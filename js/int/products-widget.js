@@ -1,5 +1,5 @@
 class ProductShareWidget{
-  constructor(sku,  limit){
+  constructor(sku, limit){
     this.page = 0;
     this.sku = sku;
     this.limit = limit;
@@ -45,5 +45,5 @@ class ProductShareWidget{
 
 
 jQuery(document).ready(() => {
-  new ProductShareWidget('__sku','__limit').loadNext();
+  new ProductShareWidget('__sku', '__limit').loadNext();
 });
