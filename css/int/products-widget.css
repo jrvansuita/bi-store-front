@@ -1,7 +1,8 @@
 .scu-holder{
   position: relative;
   padding-bottom: 50px;
-  width: 75%
+  max-width: 65%;
+  margin: auto;
 }
 
 .scu-grid{
