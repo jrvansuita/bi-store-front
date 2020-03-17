@@ -35,7 +35,7 @@ module.exports = class Initializer{
 
   utilities(){
     global.Util = require('../util/util.js');
-    global.Imp = require('../util/importer.js');
+    global.Importer = require('../util/importer.js');
     global.Img = require('../util/img.js');
   }
 

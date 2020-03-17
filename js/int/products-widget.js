@@ -17,7 +17,7 @@ class ProductShareWidget{
   loadNext(){
     this.page++;
 
-    jQuery.post('__host/get-shares-product-page', {sku: this.sku, page: this.page, limit: this.limit}, (data) => {
+    jQuery.post(Def.host + '/get-shares-product-page', {sku: this.sku, page: this.page, limit: this.limit}, (data) => {
       if(data && data.length){
         if(this.page == 1)
         this.onFirstPageLoad();
@@ -37,10 +37,13 @@ class ProductShareWidget{
   }
 
   _uploadFileButtonCreate(){
-    var label = jQuery('<span>').addClass('scu-ll').text('Envie Também!');
-    var button = jQuery('<span>').addClass('scu-fub').append(label, jQuery('<img>').addClass('scu-fu').attr('src', '__host/img/pic-folder-c.png'));
+    var label = jQuery('<span>').addClass('scu-ll').text('Compartilhe Também!');
+    var button = jQuery('<span>').addClass('scu-fub').append(label, jQuery('<img>').addClass('scu-fu').attr('src', Def.host + '/img/pic-folder-c.png'));
+
     button.click(() => {
-      new FileUploadDialog().title('Compartilhe conosco os looks Boutique Infantil!').show();
+      new Importer('FileUploadDialog').css('util/file-upload-dialog').font('Varela Round').js('util/file-upload-dialog').get(() => {
+        new FileUploadDialog().title('Compartilhe conosco os looks Boutique Infantil!').show();
+      });
     });
 
     return button;
@@ -49,9 +52,9 @@ class ProductShareWidget{
   onFirstPageLoad(){
     var title = jQuery('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes');
 
-   if (this.putUploadButton){
-     title.append(this._uploadFileButtonCreate());
-   }
+    if (this.putUploadButton){
+      title.append(this._uploadFileButtonCreate());
+    }
 
     jQuery('.scu-grid').before(title);
     var button = jQuery('<button>').text('Carregar Mais');
@@ -66,5 +69,5 @@ class ProductShareWidget{
 
 
 jQuery(document).ready(() => {
-  new ProductShareWidget('__sku', '__limit').addUploadButton(true).loadNext();
+  new ProductShareWidget(Def.params.sku, Def.params.limit).addUploadButton(true).loadNext();
 });

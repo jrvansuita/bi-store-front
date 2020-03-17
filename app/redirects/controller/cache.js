@@ -35,10 +35,13 @@ module.exports = class CacheHelper{
       callback(this.get());
     }else{
       this.onLoadContent((err, content)=>{
-        if (!err){
+        if (err){
+          console.log(err);
+        }else if (process.env.NODE_ENV) {
           this.put(content)
         }
-        callback(content);
+
+        callback(content || err.toString());
       });
     }
   }

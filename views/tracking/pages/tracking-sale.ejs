@@ -1,6 +1,9 @@
-<%-Imp.css('tracking/tracking-sale')%>
-<%-Imp.js('tracking/tracking-sale', { '__trackingUrl': __trackingUrl})%>
-<%-Imp.viewport()%>
+<%-
+new Importer(locals)
+.viewport()
+.both('tracking/tracking-sale')
+.get();
+%>
 
 
 <div class="tracking-sale-content">

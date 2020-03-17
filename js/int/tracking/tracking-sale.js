@@ -18,7 +18,7 @@ function loadTrackingContent(callback){
 
   jQuery('#sale').attr("disabled", "disabled");
 
-  var url = '__trackingUrl';
+  var url = Def.params.trackingUrl;
   var sale = jQuery('#sale').val();
   var msgError = "";
 

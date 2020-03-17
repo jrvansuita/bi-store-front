@@ -1,8 +1,10 @@
-<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
-<%-Imp.jQuery()%>
-<%-Imp.css('products-widget')%>
-<%-Imp.js('products-widget', {__sku: locals.sku, __limit: locals.limit, __host: global.host})%>
-<%-Imp.css('util/file-upload-dialog')%>
-<%-Imp.js('util/file-upload-dialog',{ __host: global.host})%>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%-
+new Importer(locals)
+.viewport()
+.jQuery()
+.frontImporter()
+.both('products-widget')
+.get();
+%>
+
 <div class="scu-holder"><div class="scu-grid"></div></div>

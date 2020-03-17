@@ -5,19 +5,20 @@
   <title>Rastreio de Pedido</title>
 	<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 
-  <%-Imp.jQuery()%>
-  <%-Imp.viewport()%>
 
-  <%-Imp.css('util/side-menu')%>
-  <%-Imp.js('util/side-menu', { __host: global.host})%>
-  <%-Imp.js('util/util', { __host: global.host})%>
-
-  <%-Imp.css('tracking/tracking-page')%>
-  <%-Imp.js('tracking/tracking-page', { __host: global.host, __templateUrl: Imp.template()})%>
+  <%-
+  new Importer(locals)
+  .viewport()
+  .jQuery()
+  .both('util/side-menu')
+  .both('tracking/tracking-page')
+  .get();
+  %>
 </head>
 
 <body>
   <%- include('../parts/waves');%>
+
 
   <img class="logo" src="<%=Img.path('logo-v')%>">
 

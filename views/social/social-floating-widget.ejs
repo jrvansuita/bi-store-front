@@ -1,6 +1,10 @@
-<%-Imp.jQuery()%>
-<%-Imp.css('social-floating-widget')%>
-<%-Imp.js('social-floating-widget')%>
+  <%-
+  new Importer(locals)
+  .jQuery()
+  .both('social-floating-widget')
+  .get();
+  %>
+
 
 <div class="sfmw">
   <div class="sfmwb">

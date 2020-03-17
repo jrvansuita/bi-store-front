@@ -17,6 +17,7 @@ module.exports = class GeneralRoutes extends Routes {
       res.redirectAndCache(url)
     });
 
+  
 
   }
 

@@ -9,7 +9,7 @@ class FileUploadDialog{
     this.holder.append(this.modal);
 
     var box = jQuery('<div>').addClass('fudb');
-    var ico = jQuery('<div>').addClass('fudih').append(jQuery('<img>').attr('src', '__host/img/pic-folder-c.png'));
+    var ico = jQuery('<div>').addClass('fudih').append(jQuery('<img>').attr('src', Def.host + '/img/pic-folder-c.png'));
     var inner = jQuery('<div>').addClass('fudi');
     box.append(ico, inner);
     this.modal.append(box);
