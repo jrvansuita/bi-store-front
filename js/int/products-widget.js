@@ -31,14 +31,29 @@ class ProductShareWidget{
     });
   }
 
-  _onFileUploadClick(){
-    new FileUploadDialog().title('Compartilhe conosco os looks Boutique Infantil!').show();
+  addUploadButton(add){
+    this.putUploadButton = add;
+    return this;
+  }
+
+  _uploadFileButtonCreate(){
+    var label = jQuery('<span>').addClass('scu-ll').text('Envie Também!');
+    var button = jQuery('<span>').addClass('scu-fub').append(label, jQuery('<img>').addClass('scu-fu').attr('src', '__host/img/pic-folder-c.png'));
+    button.click(() => {
+      new FileUploadDialog().title('Compartilhe conosco os looks Boutique Infantil!').show();
+    });
+
+    return button;
   }
 
   onFirstPageLoad(){
-    var fileUploadButton = jQuery('<img>').addClass('scu-fu').attr('src', '__host/img/file-upload-g.png');
-    fileUploadButton.click(this._onFileUploadClick);
-    jQuery('.scu-grid').before(jQuery('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes',fileUploadButton));
+    var title = jQuery('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes');
+
+   if (this.putUploadButton){
+     title.append(this._uploadFileButtonCreate());
+   }
+
+    jQuery('.scu-grid').before(title);
     var button = jQuery('<button>').text('Carregar Mais');
     var loadHolder = jQuery("<div>").addClass("scu-load-more").append(button);
     jQuery('.scu-holder').append(loadHolder);
@@ -51,5 +66,5 @@ class ProductShareWidget{
 
 
 jQuery(document).ready(() => {
-  new ProductShareWidget('__sku', '__limit').loadNext();
+  new ProductShareWidget('__sku', '__limit').addUploadButton(true).loadNext();
 });
