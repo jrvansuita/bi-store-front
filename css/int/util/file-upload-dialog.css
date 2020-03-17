@@ -2,11 +2,11 @@
   width: 100%;
   background: #00000059;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 99999;
 }
-
 
 .fudmb .fudm{
   margin: auto;
@@ -24,6 +24,24 @@
   cursor: pointer;
 }
 
+.fudmb .fudc{
+  width: 15px;
+  height: 15px;
+  background-color: #757373;
+  border-radius: 50%;
+  padding: 3px;
+  right: 8px;
+  top: 10px;
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  z-index: 999999;
+}
+
+.fudmb .fudc:hover{
+  background-color: #4c4c4c;
+}
+
 .fudmb .fudb{
   display: flex;
   position: relative;
@@ -36,6 +54,11 @@
   position: relative;
 }
 
+.fudb .fudih .fudf{
+  width: 90%;
+  height: 90%;
+}
+
 .fudb .fudih > img{
   width: 60px;
   height: 60px;
@@ -44,6 +67,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  object-fit: contain;
 }
 
 .fudmb .fudi{
@@ -56,6 +80,7 @@
 .fudmb .fudi > span{
   font-family: "Varela Round", sans-serif;
   display: block;
+  max-width: 500px;
 }
 
 .fudmb .fudi .fudt{
@@ -73,4 +98,8 @@
   margin-top: 5px;
   color: gray;
   font-size: 13px;
+}
+
+.fudmb form{
+  display: none;
 }
