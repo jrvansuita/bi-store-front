@@ -45,7 +45,7 @@ _buildTextBox(){
   this.modal.append(box);
 
   this.maintitle = jQuery('<span>').addClass('fudt');
-  this.subTitle = jQuery('<span>').addClass('fudst').text('Clique aqui para selecionar uma foto deste produto sendo usado por você.');
+  this.subTitle = jQuery('<span>').addClass('fudst').text('Clique aqui para selecionar uma foto deste produto sendo usado no dia-a-dia.');
   this.footTitle = jQuery('<span>').addClass('fudft').text('Suporta: *.png, *.jpg, *.jpeg');
   this.inner.append(this.maintitle, this.subTitle, this.footTitle);
 
