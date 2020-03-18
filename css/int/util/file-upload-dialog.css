@@ -36,6 +36,7 @@
   cursor: pointer;
   display: block;
   z-index: 999999;
+  box-sizing: content-box;
 }
 
 .fudmb .fudc:hover{
