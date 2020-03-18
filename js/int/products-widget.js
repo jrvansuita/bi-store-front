@@ -51,7 +51,7 @@ class ProductShareWidget{
             data: {
               sku: this.sku,
               img: data
-            });
+            }});
           }).show();
         });
       });
