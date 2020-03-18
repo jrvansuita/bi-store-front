@@ -37,7 +37,7 @@ class ProductShareWidget{
   }
 
   _uploadFileButtonCreate(){
-    var label = jQuery('<span>').addClass('scu-ll').text('Compartilhe Também!');
+    var label = jQuery('<span>').addClass('scu-ll').text('Enviar Também!');
     var button = jQuery('<span>').addClass('scu-fub').append(label, jQuery('<img>').addClass('scu-fu').attr('src', Def.host + '/img/pic-folder-c.png'));
 
     button.click(() => {
@@ -54,7 +54,7 @@ class ProductShareWidget{
   }
 
   onFirstPageLoad(){
-    var title = jQuery('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes');
+    var title = jQuery('<h2>').addClass('scu-title').append('Compartilhados pelos Clientes');
 
     if (this.putUploadButton){
       title.append(this._uploadFileButtonCreate());

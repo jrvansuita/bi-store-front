@@ -35,7 +35,7 @@ class FileUploadDialog{
 _buildTextBox(){
   var box = jQuery('<div>').addClass('fudb');
 
-  this.img = jQuery('<img>').attr('src', Def.host + '/img/pic-folder-c.png').addClass('blink_me');
+  this.img = jQuery('<img>').attr('src', Def.host + '/img/pic-folder-c.png').addClass('fudfb');
 
   var imgHolder = jQuery('<div>').addClass('fudih').append(this.img);
 
@@ -45,7 +45,7 @@ _buildTextBox(){
   this.modal.append(box);
 
   this.maintitle = jQuery('<span>').addClass('fudt');
-  this.subTitle = jQuery('<span>').addClass('fudst').text('Clique aqui para selecionar uma foto do seu computador.');
+  this.subTitle = jQuery('<span>').addClass('fudst').text('Clique aqui para selecionar uma foto deste produto sendo usado por você.');
   this.footTitle = jQuery('<span>').addClass('fudft').text('Suporta: *.png, *.jpg, *.jpeg');
   this.inner.append(this.maintitle, this.subTitle, this.footTitle);
 
@@ -70,7 +70,7 @@ _onFileUploaded(image){
   this.img.addClass('fudf').attr('src', image);
   this.maintitle.text('Obrigado por compartilhar!');
   this.subTitle.text('Sua foto foi enviada para análise da nossa equipe, caso aprovada, será publicada em breve.');
-  this.img.removeClass('blink_me');
+  this.img.removeClass('fudfb');
   this.footTitle.hide();
 }
 

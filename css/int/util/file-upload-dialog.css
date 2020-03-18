@@ -106,8 +106,8 @@
 }
 
 
-.blink_me {
-  animation: blinker 2s linear infinite;
+.fudfb {
+  animation: blinker 2s linear infinite !important;
 }
 
 
