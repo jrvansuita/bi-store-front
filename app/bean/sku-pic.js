@@ -31,7 +31,7 @@ module.exports = class SkuPic extends DataAccess {
       if (dif <= 0 || !sku){
         callback(result);
       }else{
-        SkuPic.getLasts(SkuPic.getPageQuery(sku, true), dif, (err, docs) => {
+        SkuPic.getLasts(SkuPic.getPageQuery(sku, true), page, dif, (err, docs) => {
           docs = docs ? docs : [];
           callback(result.concat(docs.sort(function() {
             return .5 - Math.random();

@@ -5,7 +5,6 @@ module.exports = class CacheHelper{
 
   constructor(path, params){
     this.id = path + (params ? '-' + Object.values(params).join('-') : '');
-    console.log(this.id);
     console.time(this.id);
   }
 
@@ -22,7 +21,6 @@ module.exports = class CacheHelper{
 
   put(content){
     staticData[this.id] = content;
-    console.timeEnd(this.id);
     return content;
   }
 
@@ -36,6 +34,8 @@ module.exports = class CacheHelper{
       callback(this.get());
     }else{
       this.onLoadContent((err, content)=>{
+        console.timeEnd(this.id);
+        
         if (err){
           console.log(err);
         }else if (process.env.NODE_ENV) {
