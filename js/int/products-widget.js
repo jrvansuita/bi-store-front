@@ -43,36 +43,41 @@ class ProductShareWidget{
     button.click(() => {
       new Importer('FileUploadDialog').css('util/file-upload-dialog').font('Varela Round').js('util/file-upload-dialog').get(() => {
         new FileUploadDialog().title('Compartilhe conosco os looks Boutique Infantil!').onSelect((data) => {
-          jQuery.post(Def.host + '/post-share-product', {
-            sku: this.sku,
-            img: data
-          });
-        }).show();
+
+          jQuery.ajax({
+            type: 'POST',
+            url: Def.host + '/post-share-product',
+            crossDomain: true,
+            data: {
+              sku: this.sku,
+              img: data
+            });
+          }).show();
+        });
       });
-    });
 
-    return button;
-  }
-
-  onFirstPageLoad(){
-    var title = jQuery('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes');
-
-    if (this.putUploadButton){
-      title.append(this._uploadFileButtonCreate());
+      return button;
     }
 
-    jQuery('.scu-grid').before(title);
-    var button = jQuery('<button>').text('Carregar Mais');
-    var loadHolder = jQuery("<div>").addClass("scu-load-more").append(button);
-    jQuery('.scu-holder').append(loadHolder);
+    onFirstPageLoad(){
+      var title = jQuery('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes');
 
-    button.click(() => {
-      this.loadNext();
-    })
-  }
-};
+      if (this.putUploadButton){
+        title.append(this._uploadFileButtonCreate());
+      }
+
+      jQuery('.scu-grid').before(title);
+      var button = jQuery('<button>').text('Carregar Mais');
+      var loadHolder = jQuery("<div>").addClass("scu-load-more").append(button);
+      jQuery('.scu-holder').append(loadHolder);
+
+      button.click(() => {
+        this.loadNext();
+      })
+    }
+  };
 
 
-jQuery(document).ready(() => {
-  new ProductShareWidget(Def.params.sku, Def.params.limit).addUploadButton(true).loadNext();
-});
+  jQuery(document).ready(() => {
+    new ProductShareWidget(Def.params.sku, Def.params.limit).addUploadButton(true).loadNext();
+  });
