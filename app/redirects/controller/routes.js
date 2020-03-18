@@ -1,4 +1,4 @@
-const https = require('https');
+const Request = require('../../request/request.js');
 const CacheHelper = require('./cache.js');
 
 module.exports = class Routes {
@@ -33,15 +33,11 @@ module.exports = class Routes {
 
 
   _externalLoad(url, callback){
-    https.get(url, (resp) => {
-      let data = '';
-      resp.on('data', (chunk) => {
-        data += chunk;
-      });
-      resp.on('end', () => {
-        callback(null, data);
-      });
-    });
+    new Request().url(url).success((data) => {
+      callback(null, data);
+    }).error((error) => {
+      callback(error);
+    }).get();
   }
 
   _routes(){
