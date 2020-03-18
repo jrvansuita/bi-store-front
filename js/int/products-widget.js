@@ -43,21 +43,8 @@ class ProductShareWidget{
     button.click(() => {
       new Importer('FileUploadDialog').css('util/file-upload-dialog').font('Varela Round').js('util/file-upload-dialog').get(() => {
         new FileUploadDialog().title('Compartilhe conosco os looks Boutique Infantil!').onSelect((data) => {
-
-          jQuery.ajax({
-            type: 'POST',
-            url: Def.host + '/post-share-product',
-            crossDomain: true,
-            data: {
-              sku: this.sku,
-              img: data
-            },
-            success: function(responseData, textStatus, jqXHR) {
-              console.log(responseData);
-            },
-            error: function (responseData, textStatus, errorThrown) {
-              console.log(responseData);
-            }
+          jQuery.post(Def.host + '/post-share-product', {sku: this.sku, img: data}, (responseData) => {
+            console.log(responseData);
           });
         }).show();
       });
