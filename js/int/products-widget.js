@@ -51,33 +51,40 @@ class ProductShareWidget{
             data: {
               sku: this.sku,
               img: data
-            }});
-          }).show();
-        });
+            },
+            success: function(responseData, textStatus, jqXHR) {
+              console.log(responseData);
+            },
+            error: function (responseData, textStatus, errorThrown) {
+              console.log(responseData);
+            }
+          });
+        }).show();
       });
+    });
 
-      return button;
+    return button;
+  }
+
+  onFirstPageLoad(){
+    var title = jQuery('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes');
+
+    if (this.putUploadButton){
+      title.append(this._uploadFileButtonCreate());
     }
 
-    onFirstPageLoad(){
-      var title = jQuery('<h2>').addClass('scu-title').append('Fotos Compartilhadas pelos Clientes');
+    jQuery('.scu-grid').before(title);
+    var button = jQuery('<button>').text('Carregar Mais');
+    var loadHolder = jQuery("<div>").addClass("scu-load-more").append(button);
+    jQuery('.scu-holder').append(loadHolder);
 
-      if (this.putUploadButton){
-        title.append(this._uploadFileButtonCreate());
-      }
-
-      jQuery('.scu-grid').before(title);
-      var button = jQuery('<button>').text('Carregar Mais');
-      var loadHolder = jQuery("<div>").addClass("scu-load-more").append(button);
-      jQuery('.scu-holder').append(loadHolder);
-
-      button.click(() => {
-        this.loadNext();
-      })
-    }
-  };
+    button.click(() => {
+      this.loadNext();
+    })
+  }
+};
 
 
-  jQuery(document).ready(() => {
-    new ProductShareWidget(Def.params.sku, Def.params.limit).addUploadButton(true).loadNext();
-  });
+jQuery(document).ready(() => {
+  new ProductShareWidget(Def.params.sku, Def.params.limit).addUploadButton(true).loadNext();
+});
