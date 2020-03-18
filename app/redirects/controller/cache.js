@@ -5,6 +5,7 @@ module.exports = class CacheHelper{
 
   constructor(path, params){
     this.id = path + (params ? '-' + Object.values(params).join('-') : '');
+    console.log(this.id);
     console.time(this.id);
   }
 

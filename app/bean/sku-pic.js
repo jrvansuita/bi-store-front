@@ -21,7 +21,6 @@ module.exports = class SkuPic extends DataAccess {
   }
 
   static getPage(sku, page, limit, callback) {
-    limit = limit || 16;
     var result;
 
     SkuPic.paginate(SkuPic.getPageQuery(sku), page, '-date', limit, (err, docs)=>{

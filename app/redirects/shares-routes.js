@@ -13,7 +13,7 @@ module.exports = class SharesRoutes extends Routes {
 
     this._post('/get-shares-product-page', (req, res) => {
       new ProductSharesProvider(true)
-      .with(req.body.sku, parseInt(req.body.page) || 1, parseInt(req.body.limit))
+      .with(req.body.sku, parseInt(req.body.page) || 1, parseInt(req.body.limit) || 16)
       .setOnResult((data) => {
         res.send(data);
       })
