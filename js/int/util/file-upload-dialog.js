@@ -35,7 +35,7 @@ class FileUploadDialog{
 _buildTextBox(){
   var box = jQuery('<div>').addClass('fudb');
 
-  this.img = jQuery('<img>').attr('src', Def.host + '/img/pic-folder-c.png');
+  this.img = jQuery('<img>').attr('src', Def.host + '/img/pic-folder-c.png').addClass('blink_me');
 
   var imgHolder = jQuery('<div>').addClass('fudih').append(this.img);
 
@@ -70,6 +70,7 @@ _onFileUploaded(image){
   this.img.addClass('fudf').attr('src', image);
   this.maintitle.text('Obrigado por compartilhar!');
   this.subTitle.text('Sua foto foi enviada para análise da nossa equipe, caso aprovada, será publicada em breve.');
+  this.img.removeClass('blink_me');
   this.footTitle.hide();
 }
 
