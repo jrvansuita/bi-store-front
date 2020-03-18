@@ -2,7 +2,7 @@
   position: relative;
   padding-bottom: 50px;
   max-width: 75%;
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
 .scu-grid{
@@ -93,21 +93,25 @@ h2.scu-title{
 .scu-fu{
   width: 28px;
   height: 28px;
-  margin-left: 10px;
 }
 
 .scu-ll{
   margin-top: 7px;
   font-size: 14px;
   font-weight: 600;
+  margin-right: 10px;
 }
 
 
 @media screen and (max-width: 768px) {
   .scu-holder{
-    width: 100%;
+    max-width: 100%;
     padding-left: 15px;
     padding-right: 15px;
+  }
+
+  .scu-ll{
+    display: none;
   }
 
   .scu-grid {
