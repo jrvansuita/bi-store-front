@@ -104,3 +104,11 @@
 .fudmb form{
   display: none;
 }
+
+
+
+@media screen and (max-width: 768px) {
+  .fudmb .fudm{
+    width: 90%;
+  }
+}

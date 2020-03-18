@@ -24,14 +24,10 @@ module.exports = class SharesRoutes extends Routes {
     this._post('/post-share-product', (req, res) => {
       var url = Params.hawkUrl() + '/share-picture-data';
 
-      console.log('chegou até aqui');
-
       new Request()
       .url(url)
       .body({sku: req.body.sku, base64: req.body.img})
       .success((data) => {
-        console.log(data);
-        console.log('veio');
         res.sendStatus(200);
       }).error((error) => {
         console.log(error);
