@@ -9,13 +9,15 @@ jQuery(document).ready(() => {
   jQuery('#go-sale').click(()=>{
     loadTrackingContent();
   });
+
+  if (jQuery('#sale').val()){
+    loadTrackingContent();
+  }
 });
 
 
 
 function loadTrackingContent(callback){
-
-
   jQuery('#sale').attr("disabled", "disabled");
 
   var url = Def.params.trackingUrl;
@@ -29,7 +31,7 @@ function loadTrackingContent(callback){
   }
   else{
     jQuery('#tracking-content').attr('src', url+sale);
-    onTrackingContentLoaded();
+    onTrackingContentLoaded(sale);
   }
 
   if (msgError){
@@ -42,8 +44,12 @@ function loadTrackingContent(callback){
   jQuery('#sale').removeAttr("disabled");
 }
 
-function onTrackingContentLoaded(){
+function onTrackingContentLoaded(sale){
   jQuery('.main-top').fadeOut(1000);
   jQuery('.tracking-input-group').addClass('input-animated').animate({top: '-14px'}, 1000);
   jQuery('.iframe-holder').fadeIn();
+
+  if (window.history.replaceState) {
+    window.history.replaceState("Sale", sale, location.pathname + '?sale=' + sale);
+  }
 }

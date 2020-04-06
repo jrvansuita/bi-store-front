@@ -12,5 +12,6 @@ jQuery(document).ready(() => {
   .build()
   .show();
 
-  jQuery('.content').load( Def.host + '/tracking-sale');
+
+  jQuery('.content').load( Def.host + '/tracking-sale' + ((Def.params && Def.params.sale) ? '?sale=' + Def.params.sale : ''));
 });
