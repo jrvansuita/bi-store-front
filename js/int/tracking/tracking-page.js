@@ -1,6 +1,9 @@
 jQuery(document).ready(() => {
   jQuery('body').append(jQuery('<div>').load( Def.host + "/social-floating-widget"));
 
+  var wSize = window.innerWidth;
+
+  var show = wSize > 768 ? true : false;
 
   new SideMenu(jQuery('.content'))
   .addItem('Rastrear', 'loupe-w',  Def.host + '/tracking-sale')
@@ -10,7 +13,7 @@ jQuery(document).ready(() => {
   .addItem('Endereço Insuficiente', 'map-w',  Def.host + '/template-viwer?id=61723810')
   .addItem('Central de Atendimento', 'headset-w',   Def.host + '/template-viwer?id=61773960')
   .build()
-  .show();
+  .open(show);
 
 
   jQuery('.content').load( Def.host + '/tracking-sale' + ((Def.params && Def.params.sale) ? '?sale=' + Def.params.sale : ''));
