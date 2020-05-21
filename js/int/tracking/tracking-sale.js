@@ -26,7 +26,7 @@ function loadTrackingContent(callback){
 
   if(sale == ""){
     msgError = "Insira o número do pedido"
-  }else if(!sale.startsWith('120') || sale.length < 9){
+  }else if(parseInt(sale.slice(0,3)) < 120 || sale.length < 9){
     msgError = "O número do pedido está incorreto"
   }
   else{
