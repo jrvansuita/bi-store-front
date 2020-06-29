@@ -17,10 +17,9 @@ jQuery(document).ready(() => {
 
 
 
-function loadTrackingContent(callback){
+function loadTrackingContent(){
   jQuery('#sale').attr("disabled", "disabled");
 
-  var url = Def.params.trackingUrl;
   var sale = jQuery('#sale').val();
   var msgError = "";
 
@@ -30,8 +29,10 @@ function loadTrackingContent(callback){
     msgError = "O número do pedido está incorreto"
   }
   else{
-    jQuery('#tracking-content').attr('src', url+sale);
-    onTrackingContentLoaded(sale);
+    getTrackingData(sale, (data) => {
+      loadTrackingSale(data)
+      onTrackingContentLoaded(sale);  
+    })
   }
 
   if (msgError){
@@ -52,4 +53,18 @@ function onTrackingContentLoaded(sale){
   if (window.history.replaceState) {
     window.history.replaceState("Sale", sale, location.pathname + '?sale=' + sale);
   }
+}
+
+function getTrackingData(sale, callback){
+  jQuery.post(Def.params.trackingUrl.replace('__sale__', sale), null , (data) => {
+    callback(data)
+  });
+}
+
+function loadTrackingSale(data){
+  //Carregar tudo dinamicamente dentro do .tracking-content
+  console.log(data);  
+
+
+  
 }
