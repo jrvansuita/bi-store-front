@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+  <g id="Grupo_120" data-name="Grupo 120" transform="translate(-1286 -256)">
+    <circle id="Elipse_5" data-name="Elipse 5" cx="19" cy="19" r="19" transform="translate(1286 256)" fill="#59c67e"/>
+    <g id="Icon_awesome-truck" data-name="Icon awesome-truck" transform="translate(1296.884 267.549)">
+      <path id="Icon_awesome-truck-2" data-name="Icon awesome-truck" d="M18.162,10.245H17.7V7.1a1.4,1.4,0,0,0-.41-.987L14.378,3.2a1.4,1.4,0,0,0-.987-.41H12.108V1.4a1.4,1.4,0,0,0-1.4-1.4H1.4A1.4,1.4,0,0,0,0,1.4v9.314a1.4,1.4,0,0,0,1.4,1.4h.466a2.794,2.794,0,1,0,5.588,0h3.725a2.794,2.794,0,1,0,5.588,0h1.4a.467.467,0,0,0,.466-.466v-.931A.467.467,0,0,0,18.162,10.245ZM4.657,13.5a1.4,1.4,0,1,1,1.4-1.4A1.4,1.4,0,0,1,4.657,13.5Zm9.314,0a1.4,1.4,0,1,1,1.4-1.4A1.4,1.4,0,0,1,13.971,13.5ZM16.3,7.451H12.108V4.191h1.284L16.3,7.1Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -11,6 +11,7 @@ module.exports = class TrackingRoutes extends Routes {
       res.render('tracking/pages/tracking-sale', {trackingUrl: Params.trackingUrl(), sale: req.query.sale});
     });
 
+    
 
   }
 }

@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 .tracking-sale-content{
-  background-color: #fff6f1;
+  background-color: #fff;
   border-radius: 35px;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -81,9 +82,11 @@ input[type=number] {
 }
 
 .iframe-holder{
-  max-width: 43rem;
+  max-width: 55rem;
   margin: auto;
   display: none;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
 }
 
 .input-animated{
@@ -91,6 +94,268 @@ input[type=number] {
   width: 25%;
   left: 0;
   right: 0;
+}
+
+.details-info{
+  display: block;
+    margin: 5% 0 7% 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.details-info span{
+  display: block;
+  text-align: justify;
+}
+
+.oc{
+  display: inline-block;
+  float: right;
+}
+
+.atual{
+  display: flex;
+  margin-bottom: 20px;
+  font-size:14px;
+  font-weight: bold;
+  color:#C3C1D3;
+}
+
+.alin{
+  background: url(https://i.imgur.com/ho3oEWv.png);
+  width: 212px;
+  height: 85px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 15px;
+  margin: 0 0 0 50px;
+  align-self: center;
+}
+
+.transp p{
+  margin-left: -10px;
+}
+
+.transpImg img{
+  width: 135px;
+  height: 70px;
+  margin-left: -5px;
+  margin-top: -4px;
+}
+
+.transporte{
+  font-size: 13px;
+  margin-top: -8px;
+  color: #000;
+}
+
+.finished img{
+  width: 50px;
+  float: left;
+  margin-left: 15px;
+  margin-top: 6px;
+}
+
+/* .finished hr{
+  width: 100px;
+  margin-left: 70px;
+  position: relative;
+  margin-top: 45px;
+  background-color: #FEC76C;
+  color: #FEC76C;
+  border: 1.4px solid;
+  border-radius: 10px;
+} */
+
+.statusNow{
+  background-size: 100% 100%;
+  width: 245px;
+  height: 107px;
+}
+
+.statusNow p{
+  margin-top: 10px;
+}
+
+.statusNow span{
+  font-family: 'Nunito', sans-serif;
+    color: #000;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    margin-top: 15px;
+    font-size: 13px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #59C67E;
+    width: fit-content;
+}
+
+.statusImg img{
+  width: 50px;
+  float: left;
+  margin-right: 3px;
+  margin-top: -7px;
+}
+
+
+.timeline-transp{
+  background: #EDF3FA;
+  width: 680px;
+  height: 30px;
+  margin: 35px auto;
+  border-radius: 20px;
+  color: #545d67cf;
+  font-weight: bold;
+}
+
+.timeline-transp ul {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  height: 30px;
+  font-size: 14px;
+}
+
+.timeline-transp ul li{
+  display: inline;
+  flex: 1;
+  line-height: 30px;
+}
+
+.nowStatus{
+  background: #4BA1FC;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.tb-holder{
+  background: #F7F8F8;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    border-spacing: 0 12px;
+    padding: 20px;
+    color: #545d67b5;
+    font-weight: bold;
+}
+
+.tr-top th:first-child{
+  width: 200px;
+}
+
+.tr-top th:last-child{
+  width: 200px;
+}
+
+.lineT{
+  height: 60px;
+  background: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-left: 6px solid #59C67E;
+  filter: drop-shadow(2px 4px 3px rgba(0,0,0, .1));
+}
+
+.lineT td:first-child{
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-left: 6px solid #59C67E;
+}
+
+.lineT td:last-child{
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.obsTd{
+  width: 200px;
+  margin:auto;
+  position: absolute;;
+  line-break: auto;
+  margin-left: -3px;
+  word-break: break-word;
+}
+
+.moveIn{
+  height: 120px;
+  transition: .5s;
+}
+
+.moveOut{
+  height:60px;
+  transition:.5s;
+}
+
+.transUp{
+  transform:translateY(-28px);
+  transition: 1s;
+}
+
+.transDown{
+  transform:translateY(0px);
+  transition:1s;
+}
+
+.detailsPlus img{
+  width: 70px;
+  cursor: pointer;
+}
+
+.destino{
+  display: flex;
+  padding-top: 20px;
+  background: #f7f8f8;
+  color: #7C8693;
+  font-weight: 600;
+}
+
+.destino hr{
+  height: 0px;
+  width: 266px;
+  margin: 35px -170px 0;
+  background-color: #4BA1FC;
+  color: #4BA1FC;
+  border: 1.4px solid;
+  border-radius: 10px;
+}
+
+.X{
+  flex: 1;
+}
+
+.para{
+  margin-top: 2px;
+}
+
+.helpnes{
+  background: #f7f8f8;
+  color:#A7B1BE;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-top: 50px;
+}
+
+.contact{
+  height: 80px;
+}
+
+.contact a{
+  text-decoration: none;
+  color:#a7b1be;
+}
+
+.contact img{
+  margin-top: 10px;
+  margin-bottom: -7px;
+  margin-left: 14px;
+  width: 30px;
+}
+
+.contact label{
+  display: inline-block;
+  margin-top: 7px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px){
@@ -140,4 +405,156 @@ input[type=number] {
   .input-animated{
     left: 30px;
   }
+
+  .details-info{
+    text-align: center;
+  }
+
+  .details-info span{
+    text-align: center;
+  }
+
+  .oc{
+    float: none;
+  }
+
+  .atual{
+    display: block;
+    height: 260px;
+  }
+
+  .alin{
+    position: absolute;
+    padding: 10px;
+    width: 150px;
+  }
+
+  .transp{
+    top: 240px;
+    left: -45px;
+  }
+
+  .transp p{
+    margin-left: 0;
+  }
+
+  .transpImg img{
+    width: 110px;
+    height: 53px;
+    margin-top: -4px;
+    margin-left: 10px;
+  }
+
+  .finished{
+    top: 240px;
+    right: 4px;
+  }
+
+  .finished img{
+    width: 38px;
+    margin-left: 10px;
+  }
+
+  .statusNow{
+    width: 245px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .statusImg img{
+    width: 40px;
+  }
+
+  .statusNow span{
+    white-space: break-spaces;
+    margin-right: 5px;
+    margin-top: 7px;
+    width: auto;
+   /* padding-right: 4px;
+   padding-left: 4px; */
+  }
+
+  .timeline-transp{
+    width: 100%;
+  }
+
+  .timeline-transp ul{
+    font-size: 10px;
+  }
+
+  .timeline-transp ul li{
+    line-height: 31px;
+  }
+
+  .exited{
+    padding-left: 6px;
+    padding-right: 2px;
+  }
+
+  .tb-holder{
+    white-space: break-spaces;
+    font-size: 11px;
+  }
+
+  .tr-top th:first-child{
+    width: 80px;
+  }
+
+  .tr-top th:last-child{
+    width: 100px;
+  }
+
+  .lineT td:nth-child(2){
+    white-space: initial;
+  }
+
+  .detailsPlus img{
+    width: 60px;
+  }
+
+  .obsTd{
+    width: 100px;
+    margin-left: -1px;
+    word-break: break-word;
+  }
+
+  .moveIn{
+    height: 90px;
+  }
+
+  .destino{
+    font-size: 11px;
+  }
+
+  .destino hr{
+    width: 77px;
+    margin: 35px -64px 0;
+  }
+
+  .para label{
+    display: inline-block;
+    width: 120px;
+    white-space: break-spaces;
+  }
+
+  .helpnes{
+    font-size: 11px;
+    margin-bottom: 100px;
+  }
+
+  .contact{
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .contact a{
+    text-decoration: none;
+    color: #b1bac5;
+  }
+
+  .contact label{
+    display: block;
+  }
+}
 }
