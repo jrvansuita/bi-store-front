@@ -1,4 +1,4 @@
-const Routes = require('../redirects/controller/routes.js');
+const Routes = require('./controller/routes.js');
 const ProductSharesProvider = require('../provider/product-shares.js');
 const Request = require('../request/request.js');
 

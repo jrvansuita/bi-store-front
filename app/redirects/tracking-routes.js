@@ -7,11 +7,11 @@ module.exports = class TrackingRoutes extends Routes {
       res.render('tracking/main-tracking-page', {sale: req.query.sale});
     });
 
-    this._get('/tracking-sale', (req, res) => {
-      console.log(req.query)
+    this._get('/tracking-sale', (req, res) => {      
       res.render('tracking/pages/tracking-sale', {trackingUrl: Params.trackingUrl(), sale: req.query.sale});
     });
 
+    
 
   }
 }

@@ -36,6 +36,19 @@ module.exports = class Request{
    return this;
   }
 
+  header(header){
+    this._header = header;
+    return this;
+  }
+
+  hawkApi(){
+    return this.header({
+      access: process.env.HAWK_API_ACCESS,
+      pass: process.env.HAWK_API_PASS,
+      appkey: process.env.HAWK_API_APPKEY,
+    })
+  }
+
   _getOptions(){
     var options = {
       host: this._url.host,
@@ -46,8 +59,10 @@ module.exports = class Request{
       url: this._url.toString(),
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        ...this._header
       }
     };
+    console.log(options);
 
     if (this._log){
       console.log(options);

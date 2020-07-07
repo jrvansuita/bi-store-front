@@ -1,4 +1,4 @@
-const Routes = require('../redirects/controller/routes.js');
+const Routes = require('../routes/controller/routes.js');
 
 
 module.exports = class SocialRoutes extends Routes {

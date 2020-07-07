@@ -7,6 +7,6 @@ routes.push('tracking-routes.js');
 
 // -- Run Routes -- //
 routes.forEach((r)=>{
-  var Clazz = require('../redirects/' + r);
+  var Clazz = require('../routes/' + r);
   new Clazz(app).attach();
 });

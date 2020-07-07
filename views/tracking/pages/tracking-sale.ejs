@@ -20,12 +20,88 @@ new Importer(locals)
 </div>
 
 <div class="tracking-input-group">
-  <input type="number" id="sale" placeholder="Digite o número do seu pedido" value="<%=locals.sale ? locals.sale : ''%>">
+  <input type="text" id="sale" placeholder="Digite o número do seu pedido" value="<%=locals.sale ? locals.sale : ''%>">
   <img id="go-sale" src="<%=Img.path('loupe-w')%>">
   <p class="error-label"></p>
 </div>
 
 <div class="iframe-holder">
-  <iframe frameBorder="0" id="tracking-content"></iframe>
+ <div class="tracking-content">
+
+   <div class="details-info">
+    
+   </div>
+
+   <div class="atual">
+     <div class="transp alin">
+       <p>Método de envio</p>
+       <div class="transpImg">
+         
+       </div>
+     </div>
+     <div class="finished alin">
+       <p>Previsão de entrega</p>
+       <img src="img/transporte/date-checked.svg" >
+     </div>
+     <div class="statusNow alin">
+       <p>Status atual</p>
+       <div class="statusImg">
+
+       </div>
+     </div>
+   </div>
+
+  <div class="timeline-transp">
+    <ul>
+      <li class="created">Criado</li>
+      <li class="dispatched">Despachado</li>
+      <li class="inTransit">Em trânsito</li>
+      <li class="exited">Saiu para entrega</li>
+      <li class="delivered">Entregue</li>
+    </ul>
+  </div>
+  
+  <table class="tb-holder">
+    
+    <thead>
+      <tr class="tr-top">
+        <th>Data/Hora</th>
+        <th>Status</th>
+        <th>Observação</th>
+      </tr>
+    </thead>
+
+  </table>
+
+  <div class="destino">
+    <div class="de X">
+      <img src="img/transporte/frete-b.svg" alt="">
+      <br>
+      <label>Gaspar/SC<br>
+        89110-119
+      </label>
+    </div>
+    <hr>
+    <div class="para X">
+      <img src="img/transporte/gift.svg" alt=""><br>
+    </div>
+  </div>
+  <div class="helpnes">
+    <p>Está com dúvidas? Entre com contato com nosso atendimento.</p>
+    <div class="contact">
+      <br>
+      <a href="mailto:atendimento@boutiqueinfantil.com.br">
+      <img src="img/transporte/e-mail.svg" alt="">
+      <label>atendimento@boutiqueinfantil.com.br</label></a>
+      <a href="tel:4730182846">
+      <img src="img/transporte/telefone.svg" alt="">
+      <label>(47) 3018-2846</label>
+    </a>
+    </div>
+    
+  </div>
+
+
+ </div>
 </div>
 </div>
