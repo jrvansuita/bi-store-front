@@ -12,7 +12,8 @@ module.exports = class TrackingRoutes extends Routes {
       res.render('tracking/pages/tracking-sale', {
         trackingUrl: Params.trackingUrl(), 
         sale: req.query.sale,
-        iconStatus: await Enum.on('ICON-STATUS-TRACKING').get(true)
+        iconStatus: await Enum.on('ICON-STATUS-TRACKING').get(true),
+        logoTransp: await Enum.on('TRANSPORT-IMGS').get(true)
       });
     });
 

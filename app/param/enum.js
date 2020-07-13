@@ -16,7 +16,7 @@ module.exports = class Enum{
          new Request(true).url(Params.hawkUrl() + '/api/enum?tag='+ this.tag + '&keys=' + !!mapped)
     .hawkApi()
     .success((data) => {
-        resolve(JSON.parse(data));
+        resolve(data);
      
    }).error((error) => {
     reject(error);

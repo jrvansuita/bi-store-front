@@ -150,7 +150,7 @@ input[type=number] {
 }
 
 .finished img{
-  width: 50px;
+  width: 45px;
   float: left;
   margin-left: 15px;
   margin-top: 6px;
@@ -191,10 +191,11 @@ input[type=number] {
 }
 
 .statusImg img{
-  width: 50px;
+  width: 45px;
   float: left;
   margin-right: 3px;
-  margin-top: -7px;
+  margin-left: 2px;
+  margin-top: -7px; 
 }
 
 
@@ -222,11 +223,31 @@ input[type=number] {
   line-height: 30px;
 }
 
-.nowStatus{
+.now-status{
   background: #4BA1FC;
     color: #fff;
     border-radius: 20px;
 }
+
+.now-delivered{
+  background:#59C67E;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.wrong{
+  color: #fff;
+    border-radius: 20px;
+    background: #FEC76C;
+}
+
+.flaw{
+  background: #FF6060;
+  color: #fff;
+    border-radius: 20px;
+}
+
+
 
 .tb-holder{
   background: #F7F8F8;
@@ -239,11 +260,11 @@ input[type=number] {
     font-weight: bold;
 }
 
-.tr-top th:first-child{
+.tb-holder th:first-child{
   width: 200px;
 }
 
-.tr-top th:last-child{
+.tb-holder th:last-child{
   width: 200px;
 }
 
@@ -272,7 +293,7 @@ input[type=number] {
 .obsTd{
   width: 200px;
   margin:auto;
-  position: absolute;;
+  position: relative;
   line-break: auto;
   margin-left: -3px;
   word-break: break-word;
@@ -289,7 +310,7 @@ input[type=number] {
 }
 
 .transUp{
-  transform:translateY(-28px);
+  transform:translateY(-5px);
   transition: 1s;
 }
 
@@ -476,7 +497,7 @@ input[type=number] {
   }
 
   .timeline-transp{
-    width: 100%;
+    width: 95%;
   }
 
   .timeline-transp ul{
@@ -497,11 +518,11 @@ input[type=number] {
     font-size: 11px;
   }
 
-  .tr-top th:first-child{
+  .tb-holder th:first-child{
     width: 80px;
   }
 
-  .tr-top th:last-child{
+  .tb-holder th:last-child{
     width: 100px;
   }
 
@@ -532,7 +553,7 @@ input[type=number] {
     margin: 35px -64px 0;
   }
 
-  .para label{
+  .para-txt label{
     display: inline-block;
     width: 120px;
     white-space: break-spaces;

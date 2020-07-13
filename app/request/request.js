@@ -62,7 +62,6 @@ module.exports = class Request{
         ...this._header
       }
     };
-    console.log(options);
 
     if (this._log){
       console.log(options);
