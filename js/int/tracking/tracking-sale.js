@@ -137,19 +137,19 @@ function buildHistoric(holder, historic, problem) {
     var $obs = jQuery("<p>").text(each.observacao.replace(RegExp("^[0-9]*"), "").replace(/-/g, '')?.replace(/\*/g, '')).addClass("obsTd").css("display", "none");
 
     if (jQuery($obs).text()) {
-      var maisInfo = jQuery("<img>").attr("src", Def.host + "img/transporte/arrow-right.png");
+      var maisInfo = jQuery("<img>").attr("src", Def.host + "/img/transporte/arrow-right.png");
     }
 
     var $detalhes = jQuery("<td>").append(maisInfo).addClass("detailsPlus");
 
     jQuery($detalhes).click(function () {
       if (jQuery($obs).css("display") == "none" && jQuery($obs).text()) {
-        maisInfo?.attr("src", Def.host + "img/transporte/arrow-down.png").addClass("showMore");
+        maisInfo?.attr("src", Def.host + "/img/transporte/arrow-down.png").addClass("showMore");
         jQuery(this).removeClass("transDown");
         jQuery(this).parent().removeClass("moveOut");
         jQuery(this).append($obs.fadeIn(1000)).addClass("transUp").parent().addClass("moveIn");
       } else {
-        maisInfo?.attr("src", Def.host + "img/transporte/arrow-right.png");
+        maisInfo?.attr("src", Def.host + "/img/transporte/arrow-right.png");
         $obs.hide();
         jQuery(this).removeClass("transUp");
         jQuery(this).parent().removeClass("moveIn");

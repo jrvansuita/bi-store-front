@@ -13,7 +13,7 @@ module.exports = class Enum{
 
    async get(mapped){
        return new Promise((resolve, reject) => {
-         new Request(true).url(Params.hawkUrl() + '/api/enum?tag='+ this.tag + '&keys=' + !!mapped)
+         new Request().url(Params.hawkUrl() + '/api/enum?tag='+ this.tag + '&keys=' + !!mapped)
     .hawkApi()
     .success((data) => {
         resolve(data);
