@@ -172,7 +172,7 @@ function setSaleStatus(status, item, icons) {
     keys.split(",").forEach((each) => {
       if (each == actualStatus) {
         jQuery("." + icons[keys].name).addClass(icons[keys].description);
-        imgStatus.attr("src", Def.host + "img/transporte/" + icons[keys].icon + ".svg");
+        imgStatus.attr("src", Def.host + "/img/transporte/" + icons[keys].icon + ".svg");
       }if (each == actualStatus && icons[keys].description == "wrong") {
         textoStatus.css("border-color", "#FEC76C");
       }if (each == actualStatus && icons[keys].description == "flaw") {
