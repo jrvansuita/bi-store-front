@@ -137,19 +137,19 @@ function buildHistoric(holder, historic, problem) {
     var $obs = jQuery("<p>").text(each.observacao.replace(RegExp("^[0-9]*"), "").replace(/-/g, '')?.replace(/\*/g, '')).addClass("obsTd").css("display", "none");
 
     if (jQuery($obs).text()) {
-      var maisInfo = jQuery("<img>").attr("src", "img/transporte/arrow-right.png");
+      var maisInfo = jQuery("<img>").attr("src", Def.host + "img/transporte/arrow-right.png");
     }
 
     var $detalhes = jQuery("<td>").append(maisInfo).addClass("detailsPlus");
 
     jQuery($detalhes).click(function () {
       if (jQuery($obs).css("display") == "none" && jQuery($obs).text()) {
-        maisInfo?.attr("src", "img/transporte/arrow-down.png").addClass("showMore");
+        maisInfo?.attr("src", Def.host + "img/transporte/arrow-down.png").addClass("showMore");
         jQuery(this).removeClass("transDown");
         jQuery(this).parent().removeClass("moveOut");
         jQuery(this).append($obs.fadeIn(1000)).addClass("transUp").parent().addClass("moveIn");
       } else {
-        maisInfo?.attr("src", "img/transporte/arrow-right.png");
+        maisInfo?.attr("src", Def.host + "img/transporte/arrow-right.png");
         $obs.hide();
         jQuery(this).removeClass("transUp");
         jQuery(this).parent().removeClass("moveIn");
@@ -172,7 +172,7 @@ function setSaleStatus(status, item, icons) {
     keys.split(",").forEach((each) => {
       if (each == actualStatus) {
         jQuery("." + icons[keys].name).addClass(icons[keys].description);
-        imgStatus.attr("src", "img/transporte/" + icons[keys].icon + ".svg");
+        imgStatus.attr("src", Def.host + "img/transporte/" + icons[keys].icon + ".svg");
       }if (each == actualStatus && icons[keys].description == "wrong") {
         textoStatus.css("border-color", "#FEC76C");
       }if (each == actualStatus && icons[keys].description == "flaw") {
@@ -185,8 +185,9 @@ function setSaleStatus(status, item, icons) {
 }
 
 function cleanTimeline() {
-  $(".now-status").removeClass("now-status");
-  $(".wrong").removeClass("wrong");
-  $(".flaw").removeClass("flaw");
-  $(".now-delivered").removeClass("now-delivered");
+  if (jQuery(".now-status").length) jQuery(".now-status").removeClass("now-status");
+  if (jQuery(".wrong").length) jQuery(".wrong").removeClass("wrong");
+  if (jQuery(".flaw").length) jQuery(".flaw").removeClass("flaw");
+  if (jQuery(".now-delivered").length) jQuery(".now-delivered").removeClass("now-delivered");
+  
 }
