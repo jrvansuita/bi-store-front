@@ -237,27 +237,30 @@ input[type=number] {
 
 .wrong{
   color: #fff;
-    border-radius: 20px;
-    background: #FEC76C;
+  border-radius: 20px;
+  background: #FEC76C;
 }
 
 .flaw{
   background: #FF6060;
   color: #fff;
-    border-radius: 20px;
+  border-radius: 20px;
 }
-
-
 
 .tb-holder{
   background: #F7F8F8;
-    border-radius: 5px;
-    font-size: 14px;
-    width: 100%;
-    border-spacing: 0 12px;
-    padding: 20px;
-    color: #545d67b5;
-    font-weight: bold;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  border-spacing: 0 12px;
+  padding: 20px;
+  color: #545d67b5;
+  font-weight: bold;
+  border-collapse: unset;
+}
+
+.tb-holder th{
+  text-align: center!important;
 }
 
 .tb-holder th:first-child{
@@ -372,6 +375,7 @@ input[type=number] {
   margin-bottom: -7px;
   margin-left: 14px;
   width: 30px;
+  vertical-align: bottom;
 }
 
 .contact label{
