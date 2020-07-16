@@ -171,6 +171,7 @@ input[type=number] {
   background-size: 100% 100%;
   width: 245px;
   height: 107px;
+  margin-right: 20px;
 }
 
 .statusNow p{
@@ -375,7 +376,7 @@ input[type=number] {
   margin-bottom: -7px;
   margin-left: 14px;
   width: 30px;
-  vertical-align: bottom;
+  vertical-align: sub;
 }
 
 .contact label{
