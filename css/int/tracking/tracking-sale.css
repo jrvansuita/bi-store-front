@@ -257,7 +257,7 @@ input[type=number] {
   padding: 20px;
   color: #545d67b5;
   font-weight: bold;
-  border-collapse: unset;
+  border-collapse: initial!important;
 }
 
 .tb-holder th{
