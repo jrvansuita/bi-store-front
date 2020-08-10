@@ -6,7 +6,12 @@ class ProductShareWidget{
   }
 
   buildItem(each){
-    var item = jQuery('<div>').addClass('item').append(jQuery('<img>').attr('src', each.img));
+
+    var item = jQuery('<div>').addClass('item')
+    .append(jQuery('<img>')
+    .attr('src', each.img)
+    .attr('onError',"this.src=" + "'" + Def.host + '/img/product-placeholder.png' + "'"));
+
     if (each.url){
       item.click(() => {window.open(each.url, '_blank')});
     }
