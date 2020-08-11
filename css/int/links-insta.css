@@ -86,7 +86,8 @@ a {
   margin: auto;
   display: flex;
   width: 50px;
-  padding: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
   position: relative;
   transition: .3s;
 }
