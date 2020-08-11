@@ -10,5 +10,10 @@ module.exports = class SocialRoutes extends Routes {
     this._get('/facebook-comments-widget', (req, res) => {
       res.render('social/facebook-comments-widget', {fullhref: req.query.fullhref});
     });
+
+    this._get('/links-insta', (req, res)=>{
+      res.render('social/links-insta');
+    });
+
   }
 }
