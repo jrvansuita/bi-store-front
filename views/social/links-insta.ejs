@@ -1,11 +1,15 @@
-<link rel="stylesheet" href="/css\int/links-insta.css">
+<%-
+  new Importer()
+  .viewport()
+  .css('links-insta')
+  .get();
+  %>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="general-content">
 
     <div class="logo1">
-        <img id="logo"src="/img/imglogo.png">
+        <img id="logo"src="<%=Img.path('imglogo')%>">
         <div class="logo-title">
             <a href="https://www.instagram.com/boutiqueinfantil.com.br/"target="_blank"><h3>@boutiqueinfantil.com.br</h3></a>
             <p>www.boutiqueinfantil.com.br</p>
@@ -30,17 +34,17 @@
         </div>
         <div id="quadro">
             
-            <a class="social" href="https://api.whatsapp.com/send?phone=554796860185&text=Ol%c3%a1%21&source=&data="target="_blank"><img src="/img/whatsapp.png"></a>
+            <a class="social" href="https://api.whatsapp.com/send?phone=554796860185&text=Ol%c3%a1%21&source=&data="target="_blank"><img src="<%=Img.path('whatsapp')%>"></a>
 
-            <a class="social" href="https://www.instagram.com/boutiqueinfantil.com.br/"target="_blank"><img src="/img/instagram.png"></a>
+            <a class="social" href="https://www.instagram.com/boutiqueinfantil.com.br/"target="_blank"><img src="<%=Img.path('instagram')%>"></a>
 
-            <a class="social" href="https://www.facebook.com/groups/boutiqueinfantil.ofertas/"target="_blank"><img src="/img/facebook.png"></a>
+            <a class="social" href="https://www.facebook.com/boutiqueinfantil.com.br"target="_blank"><img src="<%=Img.path('facebook')%>"></a>
 
-            <a class="social" href="https://t.me/boutiqueinfantiloficial"target="_blank"><img src="/img/telegram.png"></a>
+            <a class="social" href="https://t.me/boutiqueinfantiloficial"target="_blank"><img src="<%=Img.path('telegram')%>"></a>
         
             <a class="social" href="https://blog.boutiqueinfantil.com.br/"target="_blank"><p>Blog</p></a>
 
-            <a class="social" href="https://www.youtube.com/boutiqueinfantil"target="_blank"><img src="/img/youtube.png"></a>
+            <a class="social" href="https://www.youtube.com/boutiqueinfantil"target="_blank"><img src="<%=Img.path('youtube')%>"></a>
         </div>
     </div>
 
