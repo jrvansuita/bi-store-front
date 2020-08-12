@@ -1,29 +1,29 @@
 jQuery(document).ready(() => {
-  jQuery("#sale").on("keypress", function (e) {
+  jQuery('#sale').on('keypress', function (e) {
     if (e.which === 13) {
       loadTrackingContent();
     }
   });
 
-  jQuery("#go-sale").click(() => {
+  jQuery('#go-sale').click(() => {
     loadTrackingContent();
   });
 
-  if (jQuery("#sale").val()) {
+  if (jQuery('#sale').val()) {
     loadTrackingContent();
   }
 });
 
 function loadTrackingContent() {
-  jQuery("#sale").attr("disabled", "disabled");
+  jQuery('#sale').attr('disabled', 'disabled');
 
-  var sale = jQuery("#sale").val().trim();
-  var msgError = "";
+  var sale = jQuery('#sale').val().trim();
+  var msgError = '';
 
-  if (sale == "") {
-    msgError = "Insira o número do pedido";
+  if (sale == '') {
+    msgError = 'Insira o número do pedido';
   } else if (parseInt(sale.slice(0, 3)) < 120 || sale.length < 9) {
-    msgError = "O número do pedido está incorreto";
+    msgError = 'O número do pedido está incorreto';
   } else {
     getTrackingData(sale, (data) => {
       loadTrackingSale(data);
@@ -32,128 +32,127 @@ function loadTrackingContent() {
   }
 
   if (msgError) {
-    jQuery(".error-label").html(msgError).fadeIn();
+    jQuery('.error-label').html(msgError).fadeIn();
     setTimeout(function () {
-      jQuery(".error-label").fadeOut("slow");
+      jQuery('.error-label').fadeOut('slow');
     }, 3000);
   }
 
-  jQuery("#sale").removeAttr("disabled");
+  jQuery('#sale').removeAttr('disabled');
 }
 
 function onTrackingContentLoaded(sale) {
-  jQuery(".main-top").fadeOut(1000);
-  jQuery(".tracking-input-group")
-    .addClass("input-animated")
-    .animate({ top: "-14px" }, 1000);
-  jQuery(".iframe-holder").fadeIn(1000);
+  jQuery('.main-top').fadeOut(1000);
+  jQuery('.tracking-input-group').addClass('input-animated').animate({ top: '-14px' }, 1000);
+  jQuery('.iframe-holder').fadeIn(1000);
 
   if (window.history.replaceState) {
-    window.history.replaceState(
-      "Sale",
-      sale,
-      location.pathname + "?sale=" + sale
-    );
+    window.history.replaceState('Sale', sale, location.pathname + '?sale=' + sale);
   }
 }
 
 function getTrackingData(sale, callback) {
-  jQuery.post(
-    Def.params.trackingUrl.replace("__sale__", sale),
-    null,
-    (data) => {
-      callback(data);
-    }
-  );
+  jQuery.post(Def.params.trackingUrl.replace('__sale__', sale), null, (data) => {
+    callback(data);
+  });
 }
 
 function loadTrackingSale(data) {
   var item = data.dados;
   var icons = JSON.parse(Def.params.iconStatus);
-  var transpImg = JSON.parse(Def.params.logoTransp);
+  var transpImgs = JSON.parse(Def.params.logoTransp);
 
-  jQuery(".error-label").remove();
+  jQuery('.error-label').remove();
 
-  if (item.historico[0].dataHora == "-") {
-    jQuery(".tracking-content").hide();
-    jQuery(".iframe-holder").append(
-        jQuery("<span>").addClass("error-label").text("Sem informação de rastreio." + " " + item.historico[0].status)
+  if (item.historico[0].dataHora == '-') {
+    jQuery('.tracking-content').hide();
+    jQuery('.iframe-holder').append(
+      jQuery('<span>')
+        .addClass('error-label')
+        .text('Sem informação de rastreio.' + ' ' + item.historico[0].status)
     );
-  }else{
-    jQuery(".tracking-content").show();
+  } else {
+    jQuery('.tracking-content').show();
 
-    var $span = jQuery("<span>").text("Envio");
-    var oC = jQuery("<label>").text("Pedido:" + " " + item.numero_documento).addClass("oc");
-    jQuery(".details-info").empty().append($span, oC);
+    var $span = jQuery('<span>').text('Envio');
+    var oC = jQuery('<label>')
+      .text('Pedido:' + ' ' + item.numero_documento)
+      .addClass('oc');
+    jQuery('.details-info').empty().append($span, oC);
 
+    var $imgTransp = jQuery('<img>');
 
-    var $imgTransp = jQuery("<img>");
-    Object.keys(transpImg).forEach((each) => {
-      if (transpImg[each].name.includes(item.nome_transportador)) {
-        $imgTransp.attr("src", transpImg[each].description);
+    Object.values(transpImgs).some((each) => {
+      var first = item.nome_transportador.split(' ')[0];
+      if (each.name.toLowerCase().includes(first.toLowerCase())) {
+        $imgTransp.attr('src', each.description);
       }
     });
-    jQuery(".transpImg").empty().append($imgTransp);
 
+    jQuery('.transpImg').empty().append($imgTransp);
 
-    var lastStatus = item.ultima_atualizacao_status.split("-");
+    var lastStatus = item.ultima_atualizacao_status.split('-');
 
     setSaleStatus(lastStatus, item, icons);
-    buildHistoric(jQuery(".tb-holder"), item, icons);
+    buildHistoric(jQuery('.tb-holder'), item, icons);
 
-
-    var $destino = jQuery("<label>").text(item.destino).addClass("giftDestiny");
-    jQuery(".para-txt").empty().append($destino, "<br>");
+    var $destino = jQuery('<label>').text(item.destino).addClass('giftDestiny');
+    jQuery('.para-txt').empty().append($destino, '<br>');
   }
 }
 
 function buildHistoric(holder, historic, problem) {
   holder.empty();
-  var dataHora = jQuery("<th>").text("Data/Hora");
-  var historyStatus = jQuery("<th>").text("Status");
-  var moreObs = jQuery("<th>").text("Observação");
-  var $th = jQuery("<thead>").append(dataHora, historyStatus, moreObs);
+  var dataHora = jQuery('<th>').text('Data/Hora');
+  var historyStatus = jQuery('<th>').text('Status');
+  var moreObs = jQuery('<th>').text('Observação');
+  var $th = jQuery('<thead>').append(dataHora, historyStatus, moreObs);
 
   holder.append($th);
 
   historic.historico.forEach((each) => {
-    var $tr = jQuery("<tr>").addClass("lineT");
-    var $hora = jQuery("<td>").text(each.dataHora);
-    var $status = jQuery("<td>").text(each.status.replace(RegExp("^[0-9]*"), "").replace(/-/g, '').trim().toUpperCase()).css("color", "#59C67E");
+    var $tr = jQuery('<tr>').addClass('lineT');
+    var $hora = jQuery('<td>').text(each.dataHora);
+    var $status = jQuery('<td>')
+      .text(each.status.replace(RegExp('^[0-9]*'), '').replace(/-/g, '').trim().toUpperCase())
+      .css('color', '#59C67E');
 
     Object.keys(problem).forEach((e) => {
-        e.split(",").forEach((keys) => {
-        if(keys == each.status.split("-")[0].trim() && problem[e].description == "wrong"){
-            $status.css("color", "#fec76c");
-            $hora.css('border-color','#fec76c')
+      e.split(',').forEach((keys) => {
+        if (keys == each.status.split('-')[0].trim() && problem[e].description == 'wrong') {
+          $status.css('color', '#fec76c');
+          $hora.css('border-color', '#fec76c');
         }
-        if(keys == each.status.split("-")[0].trim() && problem[e].description == "flaw"){
-            $status.css("color", "#FF6060");
-            $hora.css('border-color','#ff6060')
+        if (keys == each.status.split('-')[0].trim() && problem[e].description == 'flaw') {
+          $status.css('color', '#FF6060');
+          $hora.css('border-color', '#ff6060');
         }
-        })
+      });
     });
 
-    var $obs = jQuery("<p>").text(each.observacao.replace(RegExp("^[0-9]*"), "").replace(/-/g, '')?.replace(/\*/g, '')).addClass("obsTd").css("display", "none");
+    var $obs = jQuery('<p>')
+      .text(each.observacao.replace(RegExp('^[0-9]*'), '').replace(/-/g, '')?.replace(/\*/g, ''))
+      .addClass('obsTd')
+      .css('display', 'none');
 
     if (jQuery($obs).text()) {
-      var maisInfo = jQuery("<img>").attr("src", Def.host + "/img/transporte/arrow-right.png");
+      var maisInfo = jQuery('<img>').attr('src', Def.host + '/img/transporte/arrow-right.png');
     }
 
-    var $detalhes = jQuery("<td>").append(maisInfo).addClass("detailsPlus");
+    var $detalhes = jQuery('<td>').append(maisInfo).addClass('detailsPlus');
 
     jQuery($detalhes).click(function () {
-      if (jQuery($obs).css("display") == "none" && jQuery($obs).text()) {
-        maisInfo?.attr("src", Def.host + "/img/transporte/arrow-down.png").addClass("showMore");
-        jQuery(this).removeClass("transDown");
-        jQuery(this).parent().removeClass("moveOut");
-        jQuery(this).append($obs.fadeIn(1000)).addClass("transUp").parent().addClass("moveIn");
+      if (jQuery($obs).css('display') == 'none' && jQuery($obs).text()) {
+        maisInfo?.attr('src', Def.host + '/img/transporte/arrow-down.png').addClass('showMore');
+        jQuery(this).removeClass('transDown');
+        jQuery(this).parent().removeClass('moveOut');
+        jQuery(this).append($obs.fadeIn(1000)).addClass('transUp').parent().addClass('moveIn');
       } else {
-        maisInfo?.attr("src", Def.host + "/img/transporte/arrow-right.png");
+        maisInfo?.attr('src', Def.host + '/img/transporte/arrow-right.png');
         $obs.hide();
-        jQuery(this).removeClass("transUp");
-        jQuery(this).parent().removeClass("moveIn");
-        jQuery(this).addClass("transDown").parent().addClass("moveOut");
+        jQuery(this).removeClass('transUp');
+        jQuery(this).parent().removeClass('moveIn');
+        jQuery(this).addClass('transDown').parent().addClass('moveOut');
       }
     });
 
@@ -164,30 +163,31 @@ function buildHistoric(holder, historic, problem) {
 function setSaleStatus(status, item, icons) {
   cleanTimeline();
 
-  var imgStatus = jQuery("<img>");
-  var textoStatus = jQuery("<span>").text(item.ultima_atualizacao_status.replace(RegExp("^[0-9]*"), "").replace(/-/g, ''));
+  var imgStatus = jQuery('<img>');
+  var textoStatus = jQuery('<span>').text(item.ultima_atualizacao_status.replace(RegExp('^[0-9]*'), '').replace(/-/g, ''));
   var actualStatus = parseInt(status[0].trim());
 
   Object.keys(icons).forEach((keys) => {
-    keys.split(",").forEach((each) => {
+    keys.split(',').forEach((each) => {
       if (each == actualStatus) {
-        jQuery("." + icons[keys].name).addClass(icons[keys].description);
-        imgStatus.attr("src", Def.host + "/img/transporte/" + icons[keys].icon + ".svg");
-      }if (each == actualStatus && icons[keys].description == "wrong") {
-        textoStatus.css("border-color", "#FEC76C");
-      }if (each == actualStatus && icons[keys].description == "flaw") {
-        textoStatus.css("border-color", "#FF6060");
+        jQuery('.' + icons[keys].name).addClass(icons[keys].description);
+        imgStatus.attr('src', Def.host + '/img/transporte/' + icons[keys].icon + '.svg');
+      }
+      if (each == actualStatus && icons[keys].description == 'wrong') {
+        textoStatus.css('border-color', '#FEC76C');
+      }
+      if (each == actualStatus && icons[keys].description == 'flaw') {
+        textoStatus.css('border-color', '#FF6060');
       }
     });
   });
 
-  jQuery(".statusImg").empty().append(imgStatus, textoStatus);
+  jQuery('.statusImg').empty().append(imgStatus, textoStatus);
 }
 
 function cleanTimeline() {
-  if (jQuery(".now-status").length) jQuery(".now-status").removeClass("now-status");
-  if (jQuery(".wrong").length) jQuery(".wrong").removeClass("wrong");
-  if (jQuery(".flaw").length) jQuery(".flaw").removeClass("flaw");
-  if (jQuery(".now-delivered").length) jQuery(".now-delivered").removeClass("now-delivered");
-  
+  if (jQuery('.now-status').length) jQuery('.now-status').removeClass('now-status');
+  if (jQuery('.wrong').length) jQuery('.wrong').removeClass('wrong');
+  if (jQuery('.flaw').length) jQuery('.flaw').removeClass('flaw');
+  if (jQuery('.now-delivered').length) jQuery('.now-delivered').removeClass('now-delivered');
 }
