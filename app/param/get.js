@@ -1,74 +1,61 @@
-
-
 var Params = {
-
-  isRunningOnServer(){
+  isRunningOnServer() {
     return typeof global !== 'undefined';
   },
 
-  bundle(){
+  bundle() {
     return this.isRunningOnServer() ? global._mainParams : _params;
   },
 
-  get(name){
+  get(name) {
     return this.bundle()[name];
   },
 
-  hawkUrl(){
-    return this.get('prodution-url');
+  hawkUrl() {
+    return this.get('production-url');
   },
 
-  facebookCommentsAppId(){
+  facebookCommentsAppId() {
     return this.get('fb-app-id-comments');
   },
 
-  facebookUrl(){
+  facebookUrl() {
     return this.get('fb-url');
   },
 
-  facebookMessengerUrl(){
+  facebookMessengerUrl() {
     return this.get('fb-messenger-url');
   },
 
-  instagramUrl(){
+  instagramUrl() {
     return this.get('insta-url');
   },
 
-  whatsappUrl(){
+  whatsappUrl() {
     return this.get('whatsapp-url');
   },
 
-  telegramUrl(){
+  telegramUrl() {
     return this.get('telegram-url');
   },
 
-  customerServiceUrl(){
+  customerServiceUrl() {
     return this.get('customer-service-url');
   },
 
-  customerServicePhone(){
+  customerServicePhone() {
     var s = this.get('customer-service-phones').split(',');
 
     return s[0].trim();
   },
 
-  customerServiceEmail(){
+  customerServiceEmail() {
     return this.get('customer-service-email');
   },
 
-  trackingUrl(sale){
-    return this.get('tracking-url') + (sale ? ('/' + sale) : '');
+  trackingUrl(sale) {
+    return this.get('tracking-url') + (sale ? '/' + sale : '');
   },
+};
 
-
-
-
-
-
-}
-
-
-
-
-if (typeof module != 'undefined')
-module.exports = Params;
+if (typeof module != 'undefined') module.exports = Params;

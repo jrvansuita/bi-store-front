@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <title>Routes</title>
+  <head>
+    <meta charset="utf-8" />
+    <title>Routes</title>
 
-  <style>
-    .method{
-      font-weight: 900;
-    }
-  </style>
-</head>
+    <style>
+      .method {
+        font-weight: 900;
+      }
+    </style>
+  </head>
 
-<script type="text/javascript">
-  window.routes = <%- JSON.stringify(routes) %>
-</script>
-<body>
+  <script type="text/javascript">
+    window.routes = <%- JSON.stringify(routes) %>
+  </script>
+  <body>
+    <%routes.forEach(each=>{ if (each.name.includes('bound')){ %>
 
-  <%routes.forEach(each=>{
+    <p>
+      <a href="<%=each.route.path%>"><span class="method"><%=Object.keys(each.route.methods)%></span> <%=each.route.path%></a>
+    </p>
 
-    if (each.name.includes('bound')){
-      %>
-
-      <p><span class="method"><%=Object.keys(each.route.methods)%></span> <%=each.route.path%></p>
-
-      <%}})%>
-
-    </body>
-    </html>
+    <%}})%>
+  </body>
+</html>
