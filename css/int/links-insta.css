@@ -147,7 +147,7 @@ a {
 
   .social {
     padding: 10px;
-    display: flex;
+    display: block;
   }
 
   .social img {
