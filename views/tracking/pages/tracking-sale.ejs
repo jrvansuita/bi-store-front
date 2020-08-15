@@ -1,102 +1,81 @@
-
-
-<%-
-new Importer(locals)
-.viewport()
-.both('tracking/tracking-sale')
-.get();
-%>
-
-
+<%- new Importer(locals) .viewport() .both('tracking/tracking-sale') .get(); %>
 
 <div class="tracking-sale-content">
-<div class="main-top">
-  <h1 class="title">Rastreie seu pedido</h1>
-  <div class="animation">
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_tzK2JI.json"  background="transparent"  speed="2" loop  autoplay >
-    </lottie-player>
-  </div>
-</div>
-
-<div class="tracking-input-group">
-  <input type="text" id="sale" placeholder="Digite o número do seu pedido" value="<%=locals.sale ? locals.sale : ''%>">
-  <img id="go-sale" src="<%=Img.path('loupe-w')%>">
-  <p class="error-label"></p>
-</div>
-
-<div class="iframe-holder">
- <div class="tracking-content">
-
-   <div class="details-info">
-    
-   </div>
-
-   <div class="atual">
-     <div class="transp alin">
-       <p>Método de envio</p>
-       <div class="transpImg">
-
-       </div>
-     </div>
-     <div class="finished alin">
-       <p>Previsão de entrega</p>
-       <img src="<%=Img.svg('transporte/date-checked')%>" >
-     </div>
-     <div class="statusNow alin">
-       <p>Status atual</p>
-       <div class="statusImg" style="padding-left: 10px;padding-right: 10px;">
-
-       </div>
-     </div>
-   </div>
-
-  <div class="timeline-transp">
-    <ul>
-      <li class="created">Criado</li>
-      <li class="dispatched">Despachado</li>
-      <li class="in-transit">Em trânsito</li>
-      <li class="exited">Saiu para entrega</li>
-      <li class="delivered">Entregue</li>
-    </ul>
-  </div>
-  
-  <table class="tb-holder">
-    
-  </table>
-
-  <div class="destino">
-    <div class="de X">
-      <img src="<%=Img.svg('transporte/frete-b')%>" alt="">
-      <br>
-      <label>Gaspar/SC<br>
-        89110-119
-      </label>
+  <div class="main-top">
+    <h1 class="title">Rastreie seu pedido</h1>
+    <div class="animation">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_tzK2JI.json" background="transparent" speed="2" loop autoplay> </lottie-player>
     </div>
-    <hr>
-    <div class="para X">
-      <img src="<%=Img.svg('transporte/gift')%>" alt=""><br>
-      <div class="para-txt">
+  </div>
 
+  <div class="tracking-input-group">
+    <input type="text" id="sale" placeholder="Digite o número do seu pedido" value="<%=locals.sale ? locals.sale : ''%>" />
+    <img id="go-sale" src="<%=Img.path('loupe-w')%>" />
+    <p class="error-label"></p>
+  </div>
+
+  <div class="iframe-holder">
+    <div class="tracking-content">
+      <div class="details-info"></div>
+
+      <div class="atual">
+        <div class="transp alin">
+          <p>Método de envio</p>
+          <div class="transpImg"></div>
+        </div>
+        <div class="finished alin">
+          <p>Previsão de entrega</p>
+          <span id="deliveryDate"></span>
+          <img src="<%=Img.svg('transporte/date-checked')%>" />
+        </div>
+        <div class="statusNow alin">
+          <p>Status atual</p>
+          <div class="statusImg" style="padding-left: 10px; padding-right: 10px;"></div>
+        </div>
+      </div>
+
+      <div class="timeline-transp">
+        <ul>
+          <li class="created">Criado</li>
+          <li class="dispatched">Despachado</li>
+          <li class="in-transit">Em trânsito</li>
+          <li class="exited">Saiu para entrega</li>
+          <li class="delivered">Entregue</li>
+        </ul>
+      </div>
+
+      <table class="tb-holder"></table>
+
+      <div class="destino">
+        <div class="de X">
+          <img src="<%=Img.svg('transporte/frete-b')%>" alt="" />
+          <br />
+          <label
+            >Gaspar/SC<br />
+            89110-119
+          </label>
+        </div>
+        <hr />
+        <div class="para X">
+          <img src="<%=Img.svg('transporte/gift')%>" alt="" /><br />
+          <div class="para-txt"></div>
+        </div>
+      </div>
+      <div class="helpnes">
+        <p>Está com dúvidas? Entre com contato com nosso atendimento.</p>
+        <div class="contact">
+          <br />
+          <a href="mailto:atendimento@boutiqueinfantil.com.br">
+            <img src="<%=Img.svg('transporte/e-mail')%>" alt="" />
+            <label>atendimento@boutiqueinfantil.com.br</label></a
+          >
+          <a href="tel:4730182846">
+            <img src="<%=Img.svg('transporte/telefone')%>" alt="" />
+            <label>(47) 3018-2846</label>
+          </a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="helpnes">
-    <p>Está com dúvidas? Entre com contato com nosso atendimento.</p>
-    <div class="contact">
-      <br>
-      <a href="mailto:atendimento@boutiqueinfantil.com.br">
-      <img src="<%=Img.svg('transporte/e-mail')%>" alt="">
-      <label>atendimento@boutiqueinfantil.com.br</label></a>
-      <a href="tel:4730182846">
-      <img src="<%=Img.svg('transporte/telefone')%>" alt="">
-      <label>(47) 3018-2846</label>
-    </a>
-    </div>
-    
-  </div>
-
-
- </div>
-</div>
 </div>
