@@ -1,50 +1,46 @@
-
 var staticData = {};
 
-module.exports = class CacheHelper{
-
-  constructor(path, params){
+module.exports = class CacheHelper {
+  constructor(path, params) {
     this.id = path + (params ? '-' + Object.values(params).join('-') : '');
     console.time(this.id);
   }
 
-  has(){
+  has() {
     return staticData[this.id] != undefined;
   }
 
-  get(){
+  get() {
     console.timeEnd(this.id);
     Util.printUsedMemory();
-    return staticData[this.id]
-
+    return staticData[this.id];
   }
 
-  put(content){
+  put(content) {
     staticData[this.id] = content;
     return content;
   }
 
-  load(onLoadContent){
+  load(onLoadContent) {
     this.onLoadContent = onLoadContent;
     return this;
   }
 
-  dispath(callback){
-    if (this.has()){
+  dispatch(callback) {
+    if (this.has()) {
       callback(this.get());
-    }else{
-      this.onLoadContent((err, content)=>{
+    } else {
+      this.onLoadContent((err, content) => {
         console.timeEnd(this.id);
-        
-        if (err){
+
+        if (err) {
           console.log(err);
-        }else if (process.env.NODE_ENV) {
-          this.put(content)
+        } else if (process.env.NODE_ENV) {
+          this.put(content);
         }
 
         callback(content || err.toString());
       });
     }
   }
-
-}
+};
