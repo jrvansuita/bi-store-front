@@ -58,6 +58,7 @@ body {
   justify-content: center;
   line-height: 60px;
   transition: 0.5s;
+  text-decoration: none;
 }
 
 .links:hover {

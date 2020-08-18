@@ -25,7 +25,7 @@ function loadTrackingContent() {
   } else if (parseInt(sale.slice(0, 3)) < 120 || sale.length < 9) {
     msgError = 'O número do pedido está incorreto';
   } else {
-    getTrackingData(sale, (data) => {
+    getTrackingData(sale, data => {
       loadTrackingSale(data);
       onTrackingContentLoaded(sale);
     });
@@ -52,15 +52,15 @@ function onTrackingContentLoaded(sale) {
 }
 
 function getTrackingData(sale, callback) {
-  jQuery.post(Def.params.trackingUrl.replace('__sale__', sale), null, (data) => {
-    callback(data);
+  jQuery.get(Def.host + '/tracking?sale=' + sale, null, data => {
+    callback(JSON.parse(data));
   });
 }
 
 function loadTrackingSale(data) {
-  var item = data.dados;
+  window.data = data;
+  var item = data.tracking;
   var icons = JSON.parse(Def.params.iconStatus);
-  var transpImgs = JSON.parse(Def.params.logoTransp);
 
   jQuery('.error-label').remove();
 
@@ -80,14 +80,7 @@ function loadTrackingSale(data) {
       .addClass('oc');
     jQuery('.details-info').empty().append($span, oC);
 
-    var $imgTransp = jQuery('<img>');
-
-    Object.values(transpImgs).some((each) => {
-      var first = item.nome_transportador.split(' ')[0];
-      if (each.name.toLowerCase().includes(first.toLowerCase())) {
-        $imgTransp.attr('src', each.description);
-      }
-    });
+    var $imgTransp = jQuery('<img>').attr('src', data.sale?.icon?.description);
 
     jQuery('.transpImg').empty().append($imgTransp);
 
@@ -98,6 +91,9 @@ function loadTrackingSale(data) {
 
     var $destino = jQuery('<label>').text(item.destino).addClass('giftDestiny');
     jQuery('.para-txt').empty().append($destino, '<br>');
+
+    var showedDate = isNaN(new Date(data.sale.deliveryDate).getTime()) ? new Date(data.sale.expectedDate) : data.sale.deliveryDate;
+    jQuery('#deliveryDate').text(new Date(showedDate).toLocaleDateString('br'));
   }
 }
 
@@ -110,15 +106,15 @@ function buildHistoric(holder, historic, problem) {
 
   holder.append($th);
 
-  historic.historico.forEach((each) => {
+  historic.historico.forEach(each => {
     var $tr = jQuery('<tr>').addClass('lineT');
     var $hora = jQuery('<td>').text(each.dataHora);
     var $status = jQuery('<td>')
       .text(each.status.replace(RegExp('^[0-9]*'), '').replace(/-/g, '').trim().toUpperCase())
       .css('color', '#59C67E');
 
-    Object.keys(problem).forEach((e) => {
-      e.split(',').forEach((keys) => {
+    Object.keys(problem).forEach(e => {
+      e.split(',').forEach(keys => {
         if (keys == each.status.split('-')[0].trim() && problem[e].description == 'wrong') {
           $status.css('color', '#fec76c');
           $hora.css('border-color', '#fec76c');
@@ -167,8 +163,8 @@ function setSaleStatus(status, item, icons) {
   var textoStatus = jQuery('<span>').text(item.ultima_atualizacao_status.replace(RegExp('^[0-9]*'), '').replace(/-/g, ''));
   var actualStatus = parseInt(status[0].trim());
 
-  Object.keys(icons).forEach((keys) => {
-    keys.split(',').forEach((each) => {
+  Object.keys(icons).forEach(keys => {
+    keys.split(',').forEach(each => {
       if (each == actualStatus) {
         jQuery('.' + icons[keys].name).addClass(icons[keys].description);
         imgStatus.attr('src', Def.host + '/img/transporte/' + icons[keys].icon + '.svg');
