@@ -1,5 +1,5 @@
 <%-
-  new Importer()
+  new Importer(locals)
   .viewport()
   .css('links-insta')
   .get();
@@ -12,27 +12,15 @@
         <img id="logo"src="<%=Img.path('imglogo')%>">
         <div class="logo-title">
             <a href="https://www.instagram.com/boutiqueinfantil.com.br/"target="_blank"><h3>@boutiqueinfantil.com.br</h3></a>
-            <p>www.boutiqueinfantil.com.br</p>
+            <a href="https://www.boutiqueinfantil.com.br/" target="_blank"><p>www.boutiqueinfantil.com.br</p></a>
         </div>
     </div>
 
-    <a class="links" href="https://www.boutiqueinfantil.com.br/outlet-inverno?utm_source=sm_insta&utm_medium=bio&utm_campaign=link_tudo1690_120820"target="_blank">Tudo Por R$16,90</a>
+    <%Object.keys(promos).forEach((each)=>{%>
+        <a class="links" href="<%=promos[each].description%>" target="_blank"><%=promos[each].value%></a>
+        
+    <%})%>
 
-    <a class="links" href="https://www.boutiqueinfantil.com.br/preview-de-verao?utm_source=sm_insta&utm_medium=bio&utm_campaign=link_preview_110820"target="_blank">Preview de Verão!</a>
-
-    <a class="links" href="https://www.boutiqueinfantil.com.br/kit-body-club?utm_source=sm_insta&utm_medium=bio&utm_campaign=link_mijao_110820 "target="_blank">Kit 3 Mijões</a>
-      
-    <a class="links" href="https://www.boutiqueinfantil.com.br/kit-body-club?utm_source=sm_insta&utm_medium=bio&utm_campaign=link_kitbody_100820" target="_blank">Kit Body</a>
-
-    <a class="links" href=https://www.boutiqueinfantil.com.br/tudo-por-9-90?utm_source=sm_insta&utm_medium=bio&utm_campaign=link_tudo990_100820" target="_blank">Tudo Por R$9,90!</a>
-  
-    <a class="links" href="https://www.boutiqueinfantil.com.br/conjuntos-verao?utm_source=sm_insta&utm_medium=bio&utm_campaign=link_conjuntosverao_100820"target="_blank">Conjunto Verão Com Cupom</a>
-
-    <a class="links"href="https://www.boutiqueinfantil.com.br/pijamas-inverno?utm_source=sm_insta&utm_medium=bio&utm_campaign=link_pijamas_100820"target="_blank">Pijamas Por R$29,90</a>
-
-    <a class="links"href="https://www.boutiqueinfantil.com.br/meias-e-pantufas?utm_source=sm_insta&utm_medium=bio&utm_campaign=link_meias_100820"target="_blank">Meias e Pantufas</a>
-
-    <a class="links" href="https://www.boutiqueinfantil.com.br/bodies-avulsos?utm_source=sm_insta&utm_medium=bio&utm_campaign=link_bodiesavulso_100820 "target="_blank">Bodies Avulsos</a>
     <div id="rodape">
         <div id="encontre">
             <p>ENCONTRE-NOS AQUI:</p>

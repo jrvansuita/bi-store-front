@@ -1,4 +1,5 @@
 const Routes = require('../routes/controller/routes.js');
+const Enum = require('../param/enum.js')
 
 
 module.exports = class SocialRoutes extends Routes {
@@ -11,8 +12,10 @@ module.exports = class SocialRoutes extends Routes {
       res.render('social/facebook-comments-widget', {fullhref: req.query.fullhref});
     });
 
-    this._get('/links-insta', (req, res)=>{
-      res.render('social/links-insta');
+    this._get('/links-insta', async (req, res)=>{
+      res.render('social/links-insta',{
+        promos: JSON.parse(await Enum.on('INSTA-PROMOS').get(true))
+      });
     });
 
   }
