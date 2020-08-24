@@ -211,7 +211,7 @@ input[type="number"] {
   display: flex;
   margin-top: 15px;
   font-size: 13px;
-  padding: 0 15px 2px 5px;
+  padding: 0 5px 2px 5px;
   border-bottom: 2px solid #59c67e;
   width: fit-content;
 }
@@ -219,7 +219,6 @@ input[type="number"] {
 .statusImg img {
   width: 45px;
   float: left;
-  margin-right: 3px;
   margin-left: 2px;
   margin-top: -7px;
 }
