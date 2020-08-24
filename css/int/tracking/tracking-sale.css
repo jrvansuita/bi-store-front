@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 .tracking-sale-content {
   background-color: #fff;
@@ -14,13 +14,18 @@
   margin-top: 13px;
   position: relative;
   display: inline-block;
+  font-weight: 600;
+  left: -7px;
+  top: 4px;
+  border-bottom: 2px solid #fec76b;
+  padding: 0 7px 3px;
 }
 
 .title {
   text-align: center;
   font-size: 35px;
   color: #ff8092;
-  font-family: 'Varela Round', sans-serif;
+  font-family: "Varela Round", sans-serif;
 }
 
 .tracking-input-group {
@@ -55,7 +60,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -82,7 +87,7 @@ input[type='number'] {
 }
 
 .error-label {
-  font-family: 'Varela Round', sans-serif;
+  font-family: "Varela Round", sans-serif;
   color: red;
   margin-top: 5px;
 }
@@ -91,7 +96,7 @@ input[type='number'] {
   max-width: 55rem;
   margin: auto;
   display: none;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: bold;
 }
 
@@ -117,6 +122,20 @@ input[type='number'] {
 .oc {
   display: inline-block;
   float: right;
+}
+
+.dates-buy {
+  display: inline-block;
+  text-align: justify;
+  margin: 15px 10px 0;
+  margin-top: 15px;
+  font-size: 14px;
+  box-shadow: -1px 1px 7px -1px #00000026;
+  width: fit-content;
+  padding: 15px 20px;
+  border-radius: 8px;
+  border-bottom: 3px solid #50a0ff94;
+  border-left: 3px solid #50a0ff94;
 }
 
 .atual {
@@ -185,14 +204,14 @@ input[type='number'] {
 }
 
 .statusNow span {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   color: #000;
   font-weight: bold;
   position: relative;
   display: flex;
   margin-top: 15px;
   font-size: 13px;
-  padding-bottom: 2px;
+  padding: 0 15px 2px 5px;
   border-bottom: 2px solid #59c67e;
   width: fit-content;
 }
@@ -359,6 +378,32 @@ input[type='number'] {
   margin-top: 2px;
 }
 
+.address-destiny {
+  background: #f7f8f8;
+  padding: 25px;
+}
+
+.address {
+  width: 333px;
+  border-left: 3px solid #50a0ff;
+  margin: auto;
+  padding: 14px;
+  font-size: 12px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: -1px 1px 7px -1px #00000026;
+}
+
+.address h2{
+  margin: 5px;
+}
+
+.address p{
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 3px;
+}
+
 .helpnes {
   background: #f7f8f8;
   color: #a7b1be;
@@ -460,7 +505,7 @@ input[type='number'] {
   }
 
   .transp {
-    top: 240px;
+    top: 330px;
     left: -45px;
   }
 
@@ -476,7 +521,7 @@ input[type='number'] {
   }
 
   .finished {
-    top: 240px;
+    top: 330px;
     right: 4px;
   }
 
@@ -585,5 +630,28 @@ input[type='number'] {
 
   .contact label {
     display: block;
+  }
+
+  .dates-buy{
+    padding: 10px;
+  }
+
+  .invoice{
+    display: block;
+    margin: 20px auto;
+  }
+
+  #deliveryDate{
+    margin-top: 10px;
+    left: -3px;
+    font-size: 15px;
+  }
+
+  .address{
+    width: 290px;
+  }
+
+  .address p{
+    white-space: break-spaces;
   }
 }

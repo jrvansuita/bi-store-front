@@ -62,6 +62,7 @@ function loadTrackingSale(data) {
   var item = data.tracking;
   var icons = JSON.parse(Def.params.iconStatus);
 
+
   jQuery('.error-label').remove();
 
   if (item.historico[0].dataHora == '-') {
@@ -75,10 +76,13 @@ function loadTrackingSale(data) {
     jQuery('.tracking-content').show();
 
     var $span = jQuery('<span>').text('Envio');
+    var dateBuy = jQuery('<label>').text('Compra: ' + new Date(data.sale.buyDate).toLocaleDateString('br')).addClass('dates-buy')
+    var coletedDay = jQuery('<label>').text('Faturamento: ' + new Date(data.sale.invoiceDate).toLocaleDateString('br')).addClass('dates-buy invoice')
     var oC = jQuery('<label>')
       .text('Pedido:' + ' ' + item.numero_documento)
-      .addClass('oc');
-    jQuery('.details-info').empty().append($span, oC);
+      .addClass('dates-buy');
+      
+    jQuery('.details-info').empty().append($span, oC, dateBuy, coletedDay);
 
     var $imgTransp = jQuery('<img>').attr('src', data.sale?.icon?.description);
 
@@ -91,6 +95,8 @@ function loadTrackingSale(data) {
 
     var $destino = jQuery('<label>').text(item.destino).addClass('giftDestiny');
     jQuery('.para-txt').empty().append($destino, '<br>');
+
+    addressInformation()
 
     var showedDate = isNaN(new Date(data.sale.deliveryDate).getTime()) ? new Date(data.sale.expectedDate) : data.sale.deliveryDate;
     jQuery('#deliveryDate').text(new Date(showedDate).toLocaleDateString('br'));
@@ -186,4 +192,16 @@ function cleanTimeline() {
   if (jQuery('.wrong').length) jQuery('.wrong').removeClass('wrong');
   if (jQuery('.flaw').length) jQuery('.flaw').removeClass('flaw');
   if (jQuery('.now-delivered').length) jQuery('.now-delivered').removeClass('now-delivered');
+}
+
+function addressInformation(){
+  var address = data.sale.destiny
+
+  var aName = jQuery('<p>').text(address.nome)
+  var aStreet = jQuery('<p>').text(address.endereco + ' ' + address.enderecoNro + ', ' + address.complemento)
+  var aNeighBor = jQuery('<p>').text(address.bairro)
+  var aCity = jQuery('<p>').text(address.cep + ', ' + address.cidade + ' ' + address.uf)
+  var dest = jQuery('<h2>').text('Endereço de Destino')
+
+  jQuery('.address').empty().append(dest ,aName, aStreet, aNeighBor, aCity)
 }
