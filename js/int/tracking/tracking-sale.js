@@ -76,8 +76,8 @@ function loadTrackingSale(data) {
     jQuery('.tracking-content').show();
 
     var $span = jQuery('<span>').text('Envio');
-    var dateBuy = jQuery('<label>').text('Compra: ' + new Date(data.sale.buyDate).toLocaleDateString('br')).addClass('dates-buy')
-    var coletedDay = jQuery('<label>').text('Faturamento: ' + new Date(data.sale.invoiceDate).toLocaleDateString('br')).addClass('dates-buy invoice')
+    var dateBuy = jQuery('<label>').text('Compra: ' + new Date(data.sale.buyDate).toLocaleDateString('pt-BR')).addClass('dates-buy')
+    var coletedDay = jQuery('<label>').text('Faturamento: ' + new Date(data.sale.invoiceDate).toLocaleDateString('pt-BR')).addClass('dates-buy invoice')
     var oC = jQuery('<label>')
       .text('Pedido:' + ' ' + item.numero_documento)
       .addClass('dates-buy');
@@ -99,7 +99,13 @@ function loadTrackingSale(data) {
     addressInformation()
 
     var showedDate = isNaN(new Date(data.sale.deliveryDate).getTime()) ? new Date(data.sale.expectedDate) : data.sale.deliveryDate;
-    jQuery('#deliveryDate').text(new Date(showedDate).toLocaleDateString('br'));
+    
+    if(data.sale.expectedDate == null){
+      jQuery('#deliveryDate').text(data.sale.deliveryTime + ' dias úteis');
+    }else{
+      jQuery('#deliveryDate').text(new Date(showedDate).toLocaleDateString('pt-BR'));
+    }
+    
   }
 }
 
