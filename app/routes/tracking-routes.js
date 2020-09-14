@@ -26,5 +26,9 @@ module.exports = class TrackingRoutes extends Routes {
       var url = Params.hawkUrl() + '/shipping-order/tracking?sale=' + (req.query.sale || '');
       res.redirectAndCache(url);
     });
+
+    this._get('/faq', (req, res) => {
+      res.render('tracking/pages/faq')
+     })
   }
 };

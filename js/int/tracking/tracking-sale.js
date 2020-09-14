@@ -100,7 +100,7 @@ function loadTrackingSale(data) {
 
     var showedDate = isNaN(new Date(data.sale.deliveryDate).getTime()) ? new Date(data.sale.expectedDate) : data.sale.deliveryDate;
     
-    if(data.sale.expectedDate == null){
+    if(data.sale.expectedDate == null || data.sale.expectedDate == "0000-00-00"){
       jQuery('#deliveryDate').text(data.sale.deliveryTime + ' dias úteis');
     }else{
       jQuery('#deliveryDate').text(new Date(showedDate).toLocaleDateString('pt-BR'));

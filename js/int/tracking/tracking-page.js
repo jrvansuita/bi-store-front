@@ -12,6 +12,7 @@ jQuery(document).ready(() => {
     .addItem('Número do Pedido?', 'box-w', Def.host + '/template-viewer?id=61668082')
     .addItem('Endereço Insuficiente', 'map-w', Def.host + '/template-viewer?id=61723810')
     .addItem('Central de Atendimento', 'headset-w', Def.host + '/template-viewer?id=61773960')
+    .addItem('Perguntas Frequentes', 'question', Def.host + '/faq')
     .build()
     .open(show);
 
