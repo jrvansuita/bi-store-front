@@ -1,5 +1,6 @@
 const Routes = require('../routes/controller/routes.js');
 const Enum = require('../param/enum.js')
+const InstaPosts = require('../provider/instagram-posts')
 
 
 module.exports = class SocialRoutes extends Routes {
@@ -14,7 +15,15 @@ module.exports = class SocialRoutes extends Routes {
 
     this._get('/links-insta', async (req, res)=>{
       res.render('social/links-insta',{
-        promos: JSON.parse(await Enum.on('INSTA-PROMOS').get(true))
+        promos: JSON.parse(await Enum.on('INSTA-PROMOS').get(true)),
+        //posts: await InstaPosts.on("boutiqueinfantil.com.br").get()
+      });
+    });
+
+    this._get('/insta', async (req, res) => {
+      res.render('social/insta', {
+        promos: JSON.parse(await Enum.on('INSTA-PROMOS').get(true)),
+        posts: await InstaPosts.on("boutiqueinfantil.com.br").get()
       });
     });
 

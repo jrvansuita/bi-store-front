@@ -1,0 +1,29 @@
+<%-
+  new Importer(locals)
+  .viewport()
+  .get();
+  %>
+
+  <html>
+    <script type="text/javascript">
+        window.posts = <%- JSON.stringify(posts) %>
+        console.log(window.posts)
+    </script>
+
+
+
+
+<body>
+    <div class="images-holder">
+        <% posts.forEach((each)=>{%>
+        <div>
+            <a href="<%=each.desc%>" target="_blank">
+                <img src="<%=each.image%>" alt="">
+            </a>
+        <a href="<%=each.desc%>">COMPRAR</a>
+        </div>
+        <%})%>
+    </div>
+  
+</body>
+  </html>
