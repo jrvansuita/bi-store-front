@@ -1,6 +1,9 @@
 <%-
   new Importer(locals)
+  .jQuery()
+  .both('social/insta')
   .viewport()
+  .css('social/insta')
   .get();
   %>
 
@@ -14,6 +17,23 @@
 
 
 <body>
+    <div class="header">
+        <div>
+            <img src="/img/imglogo.png" alt="">
+        </div>
+        <div>
+            <p>Boutique Infantil</p>
+            <P>@boutiqueinfantil.com.br</p>
+        </div>
+
+
+        <div class="menu">
+            <img class="menu-button" src="/img/social/menu.svg" alt="">
+        </div>
+    </div>
+
+
+
     <div class="images-holder">
         <% posts.forEach((each)=>{%>
         <div>
@@ -25,5 +45,7 @@
         <%})%>
     </div>
   
+    <div class="options" style="display: none;"></div>
+
 </body>
   </html>

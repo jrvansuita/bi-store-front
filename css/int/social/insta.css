@@ -1,0 +1,19 @@
+.header{
+    display: flex;
+}
+
+.menu-button{
+    width: 40px!important;
+}
+
+.header img{
+    width: 73px;
+    height: 73px;
+    border-radius: 50%;
+}
+
+.images-holder{
+    grid-template-columns: repeat(3, minmax(255px, 1fr));
+    display: grid;
+}
+
