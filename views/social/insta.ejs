@@ -1,7 +1,6 @@
 <%-
   new Importer(locals)
   .jQuery()
-  .both('social/insta')
   .viewport()
   .css('social/insta')
   .get();
@@ -36,9 +35,9 @@
 
     <div class="images-holder">
         <% posts.forEach((each)=>{%>
-        <div>
+        <div class="links-holder">
             <a href="<%=each.desc%>" target="_blank">
-                <img src="<%=each.image%>" alt="">
+                <img class="image" src="<%=each.image%>" alt="">
             </a>
         <a href="<%=each.desc%>">COMPRAR</a>
         </div>
