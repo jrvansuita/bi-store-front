@@ -1,13 +1,7 @@
-jQuery(document).ready(() => {
     jQuery('.click').click(function (){
         jQuery(this).toggleClass('clicked')
         jQuery(this).next().toggleClass('show')
-
-        // something else like the way before
-        // if(jQuery(this).attr('id') == jQuery(this).next().attr('id')){
-        //     jQuery(this).next().is(":hidden") ? jQuery(this).next().css('display','block') : jQuery(this).next().hide()
-        // }
-    })
+    }) 
 
     jQuery('.topic').click(function () {
         jQuery(this).toggleClass('spotlight')
@@ -17,4 +11,3 @@ jQuery(document).ready(() => {
             'marginBottom': '20px'
         })
     })
-})

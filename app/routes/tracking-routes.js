@@ -5,7 +5,7 @@ const Enum = require('../param/enum.js');
 module.exports = class TrackingRoutes extends Routes {
   attach() {
     this._get('/tracking-page', (req, res) => {
-      res.render('tracking/main-tracking-page', { sale: req.query.sale });
+      res.render('tracking/main-tracking-page', { sale: req.query.sale, page: req.query.page });
     });
 
     this._get('/tracking-sale', async (req, res) => {
