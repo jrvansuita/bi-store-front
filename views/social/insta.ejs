@@ -2,49 +2,107 @@
   new Importer(locals)
   .jQuery()
   .viewport()
-  .css('social/insta')
+  .both('social/insta')
   .get();
   %>
 
-  <html>
-    <script type="text/javascript">
-        window.posts = <%- JSON.stringify(posts) %>
+<html>
+<script type="text/javascript">
+    window.posts = <% - JSON.stringify(posts) %>
         console.log(window.posts)
-    </script>
+</script>
 
 
 
 
 <body>
-    <div class="header">
-        <div>
-            <img src="/img/imglogo.png" alt="">
-        </div>
-        <div>
-            <p>Boutique Infantil</p>
-            <P>@boutiqueinfantil.com.br</p>
-        </div>
+    <div class="principal">
+        <div class="header">
+            <div>
+                <img src="https://i.imgur.com/DmUxU29.png" alt="">
+            </div>
+            <div class="user-name">
+                <p>Boutique Infantil</p>
+                <P>@boutiqueinfantil.com.br</p>
+            </div>
 
 
-        <div class="menu">
-            <img class="menu-button" src="/img/social/menu.svg" alt="">
+            <div class="menu">
+                <img class="menu-button" src="/img/social/menu.svg" alt="">
+            </div>
         </div>
+
+        <div class="full-banner">
+            full-banner
+        </div>
+
+        <iframe class="newsletter" src="https://emkt.boutiqueinfantil.com.br/landing/marketing-20cf5"></iframe>
+
+        <p id="text-buy">Clique na imagem para comprar</p>
+
+        <div class="images-holder">
+            <% posts.forEach((each)=>{%>
+            <div class="links-holder">
+                <a href="<%=each.desc%>" target="_blank">
+                    <img class="image" src="<%=each.image%>" alt="">
+                </a>
+                <a id="button-buy" href="<%=each.desc%>">COMPRAR</a>
+            </div>
+            <%})%>
+        </div>
+
     </div>
 
 
+    <div class="options" style="display: none;">
+        <div class="header opt">
+            <div>
+                <img id="chart" src="https://i.imgur.com/i9ia6LN.png" alt="">
+            </div>
+            <div style="font-size:16px;" class="user-name acess">
+                <p>Acesse</p>
+                <a href="https://www.boutiqueinfantil.com.br/">
+                <P style="font-size: 11px;">www.boutiqueinfantil.com.br</p></a>
+            </div>
+            <div class="menu">
+                <img class="close-button" src="https://i.imgur.com/14A7Tri.png" alt="">
+            </div>
 
-    <div class="images-holder">
-        <% posts.forEach((each)=>{%>
-        <div class="links-holder">
-            <a href="<%=each.desc%>" target="_blank">
-                <img class="image" src="<%=each.image%>" alt="">
-            </a>
-        <a href="<%=each.desc%>">COMPRAR</a>
         </div>
-        <%})%>
+        <hr>
+
+        <div class="links-promo">
+            <%Object.keys(promos).forEach((each)=>{%>
+            <a class="links" href="<%=promos[each].description%>" target="_blank"><%=promos[each].value%></a>
+
+            <%})%>
+        </div>
+        <hr>
+
+        <div class="social">
+            <p>Redes Sociais</p>
+            <div>
+                <a href="">
+                    <img src="https://i.imgur.com/6EKgZWh.png" alt="Facebook">
+                </a>
+                <a href="">
+                    <img src="https://i.imgur.com/AcibCVA.png" alt="Instagram">
+                </a>
+                <a href="">
+                    <img src="https://i.imgur.com/fwxi34i.png" alt="Youtube">
+                </a>
+                <a href="">
+                    <img src="https://i.imgur.com/YiYQDI0.png" alt="Telegram">
+                </a>
+                <a href="">
+                    <img src="https://i.imgur.com/pdRRybT.png" alt="Whatsapp">
+                </a>
+            </div>
+
+        </div>
+
     </div>
-  
-    <div class="options" style="display: none;"></div>
 
 </body>
-  </html>
+
+</html>

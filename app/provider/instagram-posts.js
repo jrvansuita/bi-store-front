@@ -29,10 +29,13 @@ module.exports = class InstagramPosts{
         var regex = /\b(https?:\/\/\S*\b)/g;
 
         data.forEach((each) => {
-            var comment = each.node.edge_media_to_caption.edges[0].node.text?.match(regex)?.[0] || "https://www.boutiqueinfantil.com.br"
+            var photo = each.node.edge_media_to_caption.edges[0].node
+            if(photo.text?.match(regex)){
+            var comment = photo.text?.match(regex)?.[0] || "https://www.boutiqueinfantil.com.br"
             var image = each.node.thumbnail_resources[2].src
 
             info.push({ desc: comment, image: image });
+            }
         })
         return info
     }
