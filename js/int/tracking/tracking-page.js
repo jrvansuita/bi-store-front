@@ -16,16 +16,5 @@ jQuery(document).ready(() => {
     .build()
     .open(show);
 
-    var url;
-    if(Def.params && Def.params.sale){
-      url = Def.host + '/tracking-sale?sale=' + Def.params.sale;
-    }
-    else if(Def.params && Def.params.page){
-      url = Def.host + '/' + Def.params.page;
-    }
-    else{
-      url = Def.host + '/tracking-sale';
-    }
-
-  jQuery('.content').load(url);
+    jQuery('.content').load(Def.host + '/tracking-sale' + (Def.params && Def.params.sale ? '?sale=' + Def.params.sale : ''));
 });
